@@ -1,0 +1,6 @@
+	def valueEqualToIndex(self,arr, n):
+	    new=list()
+        for i in range(n):
+            if i+1 == arr[i]:
+                new.append(arr[i])
+        return new
