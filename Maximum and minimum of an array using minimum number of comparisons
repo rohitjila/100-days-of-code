@@ -1,0 +1,19 @@
+#1st Method
+def middle(A,B,C):
+  if A > B:
+    A , B = B ,A
+  if B > C:
+    B , C = C , A
+  if A > B:
+    A , B = B , A
+  return B
+
+
+#2nd Method
+def middle(A,B,C):
+  if (A > B and A < C or A > C and A < B):
+    return A
+  if (B > A and B < C  or  B > C and B < A ):
+    return B
+  if (C > A and C < B or C > B and C < A ):
+    return C
