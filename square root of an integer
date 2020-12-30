@@ -1,0 +1,7 @@
+def countSquares(N):
+        n=math.floor(math.sqrt(N))
+        if n*n == N:
+            return n-1
+        else:
+            return n
+        
