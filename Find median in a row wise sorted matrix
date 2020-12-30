@@ -1,0 +1,7 @@
+ def median(self, matrix, r, c):
+    	l=[]
+    	for i in range(r):
+    	    for j in range(c):
+    	        l.append(matrix[i][j])
+    	l.sort()
+    	return (l[r*c]//2)
