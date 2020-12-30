@@ -1,0 +1,5 @@
+def findTwoElement(arr, n): 
+        a=sum(arr) -sum(set(arr))
+        b=n*(n+1)//2
+        c=b-sum(set(arr))
+        return a,c
