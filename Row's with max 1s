@@ -1,0 +1,12 @@
+def rowWithMax1s(arr, n, m):
+	    index=-1
+		for j in range(m):
+            for i in range(n):
+                if (arr[i][j]==1):
+                    break
+            else:
+                continue
+            break
+        if arr[i][j] != 1:
+            return index 
+        return i
