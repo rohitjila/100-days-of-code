@@ -1,0 +1,15 @@
+def array(arr,l,n):
+    s=set()
+    for i in range(l):
+        s.add(arr[i])
+    for i in range(l):
+        y=arr[i]+n
+        if y in s:
+            return 1
+    return -1
+t=int(input())
+for i in range(t):
+    l,n =list(map(int,input().split()))
+    arr=list(map(int,input().split()))
+    print(array(arr,l,n))
+    
