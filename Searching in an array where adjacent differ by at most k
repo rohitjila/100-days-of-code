@@ -1,1 +1,11 @@
-
+def search(arr, n, x, k): 
+    for i in range(n):
+        if arr[i] == x:
+            return i
+        i = i+ max(1,abs(arr[i]-x)//k)
+    return+ -1
+arr = [20,40,50,70,70,60] 
+x = 60
+k = 20
+n = len(arr) 
+print(search(arr, n, x, k)) 
