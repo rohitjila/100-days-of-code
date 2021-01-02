@@ -1,0 +1,7 @@
+def kthSmallest(mat, n, k): 
+    l=[]
+    for i in range(n):
+        for j in range(n):
+            l.append(mat[i][j])
+    l.sort()
+    return l[k-1]
