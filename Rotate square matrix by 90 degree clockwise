@@ -1,0 +1,26 @@
+def rotateby90(arr, n):
+    for i in range(n): 
+        for j in range(i, n): 
+            t = arr[i][j] 
+            arr[i][j] = arr[j][i] 
+            arr[j][i] = t 
+    
+    for i in range(n):
+        j = 0
+        k = n-1
+        while j < k: 
+            t = arr[i][j] 
+            arr[i][j] = arr[i][k] 
+            arr[i][k] = t 
+            j += 1
+            k -= 1
+def printlist(arr,n):
+    for i in range(n):
+        for j in range(n):
+            print(arr[i][j],end=" ")
+arr=[[1,2,3],
+[4,5,6],
+[7,8,9]]
+n=len(arr[0])
+rotateby90(arr,n)
+printlist(arr,n)
