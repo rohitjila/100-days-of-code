@@ -1,0 +1,16 @@
+def maths(arr,n,m):
+    for i in range(n):
+        t=arr[i][0]
+        arr[i][0]=arr[i][m-1]
+        arr[i][m-1]=t
+def printlist(arr,n,m):
+    for i in range(n):
+        for j in range(m):
+            print(str(arr[i][j]),end=" ")
+arr=[[1,2],
+[4,5],
+[7,8]]
+n=len(arr)
+m=len(arr[0])
+maths(arr,n,m)
+printlist(arr,n,m)
