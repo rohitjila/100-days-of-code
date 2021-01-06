@@ -1,0 +1,15 @@
+def productExceptSelf(arr,n):
+    if n==1:
+        return 0
+    temp=1
+    prod=[1 for i in range(n)]
+    for i in range(n):
+        prod[i]*=temp
+        temp*=arr[i]
+    temp=1
+    for i in range(n-1,-1,-1):
+        prod[i]*=temp
+        temp*=arr[i]
+    for i in range(n):
+        prod=(prod[i])
+    return prod
