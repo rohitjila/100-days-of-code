@@ -1,0 +1,15 @@
+from bisect import bisect_right as upper_bound
+def array(arr,n,q):
+    arr.sort()
+    prev=[None]*(n+1)
+    prev[0]=0
+    for i in range(1,n+1):
+        prev[i]=prev[i-1]+arr[i-1]
+    for i in range(q):
+        x=int(input())
+        idx=upper_bound(arr,x)
+        print(idx,prev[idx])
+n=int(input())
+arr=list(map(int,input().split(" ")))
+q=int(input())
+array(arr,n,q)
