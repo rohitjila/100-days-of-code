@@ -1,0 +1,7 @@
+def array(arr,n,k):
+    arr.sort()
+    return arr[k-1]
+arr=[7,4,5,2]
+n=len(arr)
+k=2
+print(array(arr,n,k))
