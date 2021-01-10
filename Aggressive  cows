@@ -1,0 +1,26 @@
+def array(arr,n,c):
+    arr.sort()
+    l=0
+    h=1e9
+    ans=0
+    while (l <= h):
+        mid=l+(h-l)//2
+        cow=1
+        prev=arr[0]
+        for i in range(n):
+            if (arr[i] - prev >= mid):
+                cow+=1
+                prev=arr[i]
+                if c==cow:
+                    break
+        if c==cow:
+            ans=mid
+            l=mid+1
+        else:
+            h=mid-1
+    return int(ans)  
+t=int(input())
+for i in range(t):
+    n,c=map(int,input().split())
+    arr=list(map(int,input().split()))
+    print(array(arr,n,c))
