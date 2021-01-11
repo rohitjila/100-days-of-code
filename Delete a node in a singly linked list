@@ -1,0 +1,19 @@
+def delNode(head, k):
+    temp=node()
+    temp.next=head
+    if head is None:
+        return 
+    if k == 1:
+        return head.next
+    key=1
+    prev=temp
+    curr=temp.next
+    while True:
+        if key == k:
+            prev.next=curr.next
+            curr.next=None
+            break
+        prev=curr
+        curr=curr.next
+        key+=1
+    return temp.next
