@@ -1,0 +1,10 @@
+def array(arr,n):
+    if n == 1:
+        return arr[0]
+    elif n % 2 == 0:
+        return arr[(n+2)//4]
+    else:
+        return arr[(n+1)//4+1]
+arr=[1,2,3,4]
+n=len(arr)
+print(array(arr,n))
