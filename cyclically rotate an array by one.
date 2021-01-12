@@ -1,0 +1,16 @@
+def reverse(arr,start,end): 
+    while (start < end):
+        temp=arr[start]
+        arr[start]=arr[end]
+        arr[end]=temp
+        start+=1
+        end-=1
+def rotate(arr,n):
+    reverse(arr,0,n-2)
+    reverse(arr,0,n-1)
+    print(*arr)
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    rotate(arr,n)    
