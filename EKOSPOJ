@@ -1,0 +1,24 @@
+def isValid(arr,n,m,mid):
+    s=0
+    for i in range(n):
+        if (arr[i] > mid):
+            s+=arr[i]- mid
+    if (s >= m):
+        return True
+    else:
+        return False    
+def binary(arr,n,m):
+    start=0
+    end=max(arr)
+    res=0
+    while(start <= end):
+        mid=start+(end-start)//2
+        if isValid(arr,n,m,mid):
+            res=mid
+            start=mid+1
+        else:
+            end=mid-1
+    return res
+n,m=map(int,input().split())
+arr=list(map(int,input().split(" ")))
+print(binary(arr,n,m))
