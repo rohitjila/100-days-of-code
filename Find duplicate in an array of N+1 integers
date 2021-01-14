@@ -1,0 +1,13 @@
+ def findDuplicate(arr):
+        slow = arr[0]
+        fast = arr[0]
+        while True:
+            slow = arr[slow]
+            hare = arr[arr[fast]]
+            if slow == fast:
+              break
+            slow = arr[0]
+        while slow != fast:
+            arr = arr[slow]
+            fast = arr[fast]
+        return slow
