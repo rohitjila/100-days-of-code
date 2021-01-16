@@ -1,0 +1,29 @@
+def array(n):
+    q=2
+    arr=[0]*10000
+    arr[0]=1
+    x=0
+    num=0
+    l=1
+    while (q <= n):
+        x=0
+        num=0
+        while (x < l):
+            arr[x]=arr[x]*q
+            arr[x]=arr[x]+num
+            num=arr[x]//10
+            arr[x]=arr[x]%10
+            x+=1
+        while (num != 0):
+            arr[l]=num%10
+            num=arr[l]//10
+            l+=1
+        q+=1
+    l-=1
+    while (l >= 0):
+        print(arr[l],end="")
+        l=l-1
+t=int(input())
+for i in range(t):
+    n=int(input())
+    array(n)
