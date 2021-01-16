@@ -1,0 +1,14 @@
+def array(arr,n):
+    x=n//k
+    f={}
+    for i in range(n):
+        if arr[i] in f:
+            f[arr[i]]+=1
+        else:
+            f[arr[i]]=1
+    for i in f:
+        if f[i] > x:
+            print(i,end=" ")
+arr = [ 3, 3, 4, 2, 4, 4, 2, 4, 4]
+n = len(arr)
+array(arr, n)
