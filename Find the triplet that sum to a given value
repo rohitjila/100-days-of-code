@@ -1,0 +1,17 @@
+def array(arr,N,X):
+    arr.sort()
+    for i in range(N):
+        j=i+1
+        l=n-1
+        while (j < l):
+            if (arr[i]+arr[j]+arr[l])== X:
+                return True
+            elif (arr[i]+arr[j]+arr[l]) > X:
+                l-=1
+            else:
+                j+=1
+    return False
+arr=[1 ,2 ,4 ,3 ,6]
+n=len(arr)
+k=10
+print(array(arr,n,k))
