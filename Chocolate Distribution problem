@@ -1,0 +1,17 @@
+def array(arr,n,m):
+    arr.sort()
+    min_diff=99999
+    i=0
+    while (i+m-1 < n):
+        diff=arr[i+m-1]-arr[i]
+        if diff < min_diff:
+            min_diff=diff
+        i+=1
+    return min_diff
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    m=int(input())
+    print(array(arr,n,m))
+    
