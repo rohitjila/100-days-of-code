@@ -1,0 +1,22 @@
+def array(arr1,arr2,n,m):
+    count=0
+    i,j=0,0
+    arr1.sort()
+    arr2.sort()
+    while (i < n and j < m):
+        if (arr2[j] == arr1[i]):
+            count+=1
+            i+=1
+            j+=1
+        else:
+            i+=1
+    if (count == m):
+        print("Yes")
+    else:
+        print("No")
+t=int(input())
+for i in range(t):
+    n,m=map(int,input().split())
+    arr1=list(map(int,input().split()))
+    arr2=list(map(int,input().split()))
+    array(arr1,arr2,n,m)
