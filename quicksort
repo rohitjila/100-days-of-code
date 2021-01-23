@@ -1,0 +1,20 @@
+def array(arr,first,last):
+    pivot=arr[first]
+    left=first+1
+    right=last
+    while True:
+        while left <= right and arr[left] <= pivot:
+            left+=1
+        while left <= right and arr[right] >= pivot:
+            right-=1
+        if right < left:
+            break
+        else:
+            arr[first],arr[right]=arr[right],arr[first]
+    arr[first],arr[right]=arr[right],arr[first]
+    return right
+def quickSort(arr,first,last):
+    if first < last:
+        p=array(arr,first,last)
+        quickSort(arr,0,p-1)
+        quickSort(arr,p+1,last)
