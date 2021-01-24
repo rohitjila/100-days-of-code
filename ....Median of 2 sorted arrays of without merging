@@ -1,0 +1,10 @@
+def array(arr1,arr2,n,m):
+    median1=arr1[n//2]
+    median2=arr2[m//2]
+    avg=(median1+median2)//2
+    return avg
+arr1=[1, 2, 3, 6]
+arr2=[4, 6, 8, 10]
+n=len(arr1)
+m=len(arr2)
+print(array(arr1,arr2,n,m))
