@@ -1,0 +1,33 @@
+while True:
+    n=int(input())
+    if n == 0:
+        break
+    else:
+        arr1=list(map(int,input().split(" ")))
+        m=int(input())
+        arr2=list(map(int,input().split(" ")))
+        i=0
+        j=0
+        main=0
+        s1=s2=0
+        while (i < n and j <m):
+            if (arr1[i] < arr2[j]):
+                s1+=arr1[i]
+                i+=1
+            elif (arr1[i] > arr2[j]):
+                s2+=arr2[j]
+                j+=1
+            else:
+                main=main+max(s1,s2)+arr1[i]
+                s1=s2=0
+                i+=1
+                j+=1
+        while (i < n):
+            s1+=arr1[i]
+            i+=1
+        while (j < m):
+            s2+=arr2[j]
+            j+=1
+        main=main+max(s1,s2)
+        print(main)
+            
