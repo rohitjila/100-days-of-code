@@ -1,0 +1,9 @@
+   def findNth(self,N):
+        ans=0
+        n=N
+        p=1
+        while (n > 0):
+            ans+=p*(n % 9)
+            n=n//9
+            p*=10
+        return ans
