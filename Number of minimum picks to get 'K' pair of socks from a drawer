@@ -1,0 +1,19 @@
+def array(arr,n,k):
+        ans=-1
+        opt=0
+        possible=0
+        for i in range(n):
+            possible+=(arr[i])//2
+            
+            if (arr[i] % 2 == 1):
+                opt+=(arr[i]-1)//2
+            else:
+                opt+=(arr[i]-2)//2
+        if (possible < k):
+            return ans
+        
+        if (k <= opt):
+            ans= (2 *(k-1)+n+1)
+        else:
+            ans= (2 * opt + (k - opt) + n)
+        return ans
