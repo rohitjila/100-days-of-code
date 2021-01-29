@@ -1,0 +1,16 @@
+def array(arr1,arr2,n):
+    hash_map={}
+    for i in range(n):
+        hash_map[arr1[i]]=i
+    for i in range(n):
+        if arr2[i] in hash_map:
+            arr1[i]=arr2[i]
+    for i in range(n):
+        print(arr1[i],end=" ")
+    print()
+    for i in range(n):
+        print(arr2[i],end=" ")
+arr1=['@', '#', '$', '%', '^', '&']
+arr2=['$', '%', '&', '^', '@', '#']
+n=len(arr1)
+array(arr1,arr2,n)
