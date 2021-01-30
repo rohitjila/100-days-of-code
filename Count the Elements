@@ -1,0 +1,32 @@
+def array(arr1,arr2,n,q1,q2):
+    arr={}
+    count=0
+    uncount=0
+    c=0
+    d=0
+    for i in range(n):
+        arr[arr2[i]]=i
+    for i in range(n):
+        if (i == q2):
+            d=arr1[i]
+    for i in range(n):
+        if (i == q1):
+            c=arr1[i]
+    for i in range(n):
+        if c >= arr2[i]:
+            count+=1
+    for i in range(n):
+        if d >= arr2[i]:
+            uncount+=1
+    print(count)
+    print(uncount)
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr1=list(map(int,input().split()))
+    arr2=list(map(int,input().split()))
+    m=int(input())
+    for i in range(m):
+        q1=int(input())
+        q2=int(input())
+        array(arr1,arr2,n,q1,q2)
