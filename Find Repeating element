@@ -1,0 +1,16 @@
+def array(arr,n):
+    hash_map={}
+    m=-1
+    for i in range(n-1,-1,-1):
+        if arr[i] in hash_map:
+            m=i+1
+        else:
+            hash_map[arr[i]]=1
+    if m!=-1:
+        return  m
+    else:
+        return -1
+arr=[1, 2,3,4]
+n=len(arr)
+print(array(arr,n))
+        
