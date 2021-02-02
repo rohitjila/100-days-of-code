@@ -1,0 +1,18 @@
+def array(arr,n):
+    hash_map={}
+    Sum=0
+    count=0
+    for i in range(n):
+        if (arr[i] == 0):
+            arr[i]=-1
+        Sum+=arr[i]
+        
+        if (Sum == 0):
+            count+=1
+        if Sum in hash_map:
+            count+=hash_map[Sum]
+        hash_map[Sum] = hash_map.get(Sum,0)+1
+    return count
+arr=[0,1,0,1]
+n=len(arr)
+print(array(arr,n))
