@@ -1,0 +1,23 @@
+def array(arr,n):
+    hash_map={} 
+    s=0
+    largest=0
+    for i in range(n):
+        if (arr[i] == 0):
+            arr[i]=-1
+        else:
+            arr[i]=1
+    for i in range(n):
+        s=s+arr[i]
+        
+        if (s == 0):
+            largest=i+1
+        if s in hash_map:
+            if largest < i - hash_map[s]:
+                largest=i - hash_map[s]
+        else:
+            hash_map[s]=i
+    return largest
+arr=[0,1,0,1]
+n=len(arr)
+print(array(arr,n))
