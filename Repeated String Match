@@ -1,0 +1,20 @@
+def repeatedStringMatch(A,B):
+    S=A
+    ret=1
+    print(S)
+        
+    while len(S)<len(B):
+        S+=A
+        ret+=1
+    print(S)
+        
+    if B in S:
+        return ret
+        
+    if B in S+A:
+        return ret+1
+        
+    return -1
+A="abcd"
+B="cdabcdab"
+print(repeatedStringMatch(A,B))
