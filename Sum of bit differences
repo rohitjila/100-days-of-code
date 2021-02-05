@@ -1,0 +1,13 @@
+def array(arr,n):
+    ans=0
+    count=0
+    for i in range(0,32):
+        count=0
+        for j in range(n):
+            if ((arr[j]) & (1 << i)):
+                count+=1
+        ans+=2*count*(n - count)
+    return ans
+arr=[3,5,2,5,2]
+n=len(arr)
+print(array(arr,n))
