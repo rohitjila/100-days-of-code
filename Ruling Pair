@@ -1,0 +1,18 @@
+def digitSum(n):
+    S = 0
+    while (n): 
+    	S += (n % 10) 
+    	n //= 10
+    return S
+def RulingPair(arr, n): 
+    hash_map = {} 
+    ans = -1
+    for i in range(n):  
+    	dSum =digitSum(arr[i]) 
+    	if (dSum in hash_map): 
+    		ans = max(ans, hash_map[dSum] + arr[i]) 
+    	hash_map[dSum] = max(hash_map.get(dSum, 0) ,arr[i]) 
+    return ans
+arr=[55, 23, 32, 46, 88]
+n=len(arr)
+print(RulingPair(arr,n))
