@@ -1,0 +1,23 @@
+from collections import deque
+class Solution:
+    def Reduced_String(self, k, s):
+        if k == 1:
+            p = ''
+            return p
+        
+        q = deque()
+        
+        for c in s:
+            if len(q) and q[-1][0]==c:
+                q[-1][1] += 1           
+                if q[-1][1]==k:
+                    q.pop()             
+            else:
+                q.append( [c,1] )      
+        
+        p=''
+        while len(q):               
+            p += q[0][0] * q[0][1]
+            q.popleft()
+        
+        return p
