@@ -1,0 +1,25 @@
+def relativeSort (a1, n, a2, m):
+    d={}
+    for i in a1:
+        if i in d:
+            d[i]+=1
+        else:
+            d[i]=1
+    ans=[]
+    an=[]
+    arr=set(a1)-set(a2)
+    for i in arr:
+        if i in d:
+            an.extend([i]*d[i])
+    for i in a2:
+        if i in d:
+            ans.extend([i]*d[i])
+    ll=list(an)
+    ll.sort()
+    ans.extend(ll)
+    return ans
+a1=[2,1,2,5,7,1,9,3,6,8,8]
+a2=[2,1,8,3]
+n=len(a1)
+m=len(a2)
+print(relativeSort(a1,n,a2,m))
