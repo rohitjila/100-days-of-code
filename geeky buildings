@@ -1,0 +1,11 @@
+def array(arr,n):
+    curr_min=9999999
+    for i in range(n):
+        curr_min=min(curr_min,arr[i])
+        if (i != n-1):
+            if (arr[i+1] < arr[i] and arr[i+1] > curr_min):
+                return True
+    return False
+arr=[4,7,11,5,13,2]
+n=len(arr)
+print(array(arr,n))
