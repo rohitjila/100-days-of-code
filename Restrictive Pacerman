@@ -1,0 +1,32 @@
+# 1st method
+def array(m,n):
+    x=(m*n)-(m+n)
+    return(x//2+1)
+m=25
+n=7
+print(array(m,n))
+
+# 2nd method
+def array(m,n):
+    count=0
+    x=(m*n)-(m+n)
+    queue=[]
+    queue.append(x)
+    set={x}
+    while (len(queue) > 0):
+        curr=queue[0]
+        queue.remove(queue[0])
+        count+=1
+        key=curr-m
+        if (key > 0 and key not in set):
+            queue.append(key)
+            set.add(key)
+        key=curr-n
+        if (key > 0 and key not in set):
+            queue.append(key)
+            set.add(key)
+            
+    return count
+m=25
+n=7
+print(array(m,n))
