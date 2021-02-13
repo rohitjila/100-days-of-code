@@ -1,0 +1,14 @@
+def string(s):
+    n=len(s)
+    count=0
+    while (n > 0):
+        index=s.find("geek")
+        if (index >= 0):
+            s=s[0:index]+s[index+4:]
+            count+=1
+        else:
+            return -1
+        n=len(s)
+    return count
+s="geekkgee"
+print(string(s))
