@@ -1,0 +1,16 @@
+# 1st method
+def string(s):
+    temp=""
+    for i in s:
+        temp=i+temp
+    if (temp == s):
+        print("Yes")
+    else:
+        print("No")
+    print(temp)
+s="racecar"
+string(s)
+
+#2nd method
+# Reverse the string and check whether the given string is equal to reverse string .If Yes
+# then it is palindrome string other wise Not
