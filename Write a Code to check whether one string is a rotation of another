@@ -1,0 +1,10 @@
+def rotations(s1,s2):
+    temp=s1+s1
+    if (temp.find(s2) == -1):
+        print("False")
+    else:
+        print("True")
+    
+s1="ABACD"
+s2="CDABA"
+rotations(s1,s2)
