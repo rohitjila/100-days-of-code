@@ -1,0 +1,21 @@
+def array(arr,x):
+    ans=0
+    n=len(arr)
+    dic={}
+    for i in range(n):
+        dic[arr[i]]=arr[i]
+    j=0
+    while (j < n):
+        k=j+1
+        while (k < n):
+            curr_sum=arr[j]+arr[k]
+            rsum=x-curr_sum
+            if rsum in dic and dic[rsum] != arr[j] and dic[rsum]!=arr[k]:
+                ans+=1
+            k+=1
+        j+=1
+    ans=ans//3
+    return ans
+arr=[1,2,4,5,6,8,9]
+x=15
+print(array(arr,x))
