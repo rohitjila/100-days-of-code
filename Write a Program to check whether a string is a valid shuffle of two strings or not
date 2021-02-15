@@ -1,0 +1,28 @@
+def string(s1,s2,res):
+    n=len(s1)
+    m=len(s2)
+    o=len(res)
+    if ((n+m) != o):
+        print("No")
+    else:
+        f=0
+        i=0
+        j=0
+        k=0
+        while (k < o):
+            if (i < n and s1[i] == res[k]):
+                i+=1
+            elif (j < m and s2[j] == res[k]):
+                j+=1
+            else:
+                f=1
+                break
+            k+=1
+        if (i < n or j < m):
+            print("no")
+        else:
+            print("yes")
+s1="xy"
+s2="12"
+res="x1y2"
+string(s1,s2,res)
