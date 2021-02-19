@@ -1,0 +1,52 @@
+#Python 3 Method
+def array(arr,n):
+    b=arr[::-1]
+    i=1
+    diff=b[0]**2
+    while (i < n):
+        if (i % 2 == 0):
+            diff = diff + (b[i]**2)
+        else:
+            diff = diff - (b[i] ** 2)
+        i+=1
+    return diff
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    print(array(arr,n))
+    
+   #C++ method
+   #include<bits/stdc++.h>
+using namespace std; 
+#define int long long 
+
+
+
+
+// Driver code to test above functions
+signed main()
+{
+     
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
+    int t;
+    cin>>t;
+    while (t--)
+    {
+        int n;
+        cin>>n;
+        int arr[n];
+        for(int i=0; i<n; i++)
+            cin>>arr[i];
+        int ans=arr[n-1]*arr[n-1];
+        int flag=-1;
+        for (int i=n-2; i>=0; i--)
+        {
+            ans+=flag*arr[i]*arr[i];
+            flag*=-1;
+        }
+        cout<<ans<<endl;
+    }
