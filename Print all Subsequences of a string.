@@ -1,0 +1,15 @@
+def array(s):
+    if (len(s) == 0):
+        return [" "]
+    small=array(s[1:len(s)])
+    result=[" "]*(2*(len(small)))
+    k=0
+    for i in range(len(small)):
+        result[k]=small[i]
+        k=k+1
+    for i in range(len(small)):
+        result[k]=s[0]+small[i]
+        k=k+1
+    return result
+s="abc"
+print(array(s))
