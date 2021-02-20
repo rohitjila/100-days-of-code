@@ -1,0 +1,19 @@
+def string(arr,n):
+    for i in range(n):
+        if (arr[i] == 0):
+            arr[i]=-1
+    count=0
+    s=0
+    for i in range(n):
+        s+=arr[i]
+        if (s == 0):
+            count+=1
+    if (count == 0):
+        return -1
+    else:
+        return count
+s="0111100010"
+c=list(s)
+arr=list(map(int,c))
+n=len(arr)
+print(string(arr,n))
