@@ -1,0 +1,17 @@
+def nextPermutation(arr,n):
+    for k in range(n-2,-1,-1):
+        if (arr[k] < arr[k+1]):
+            break
+    if (k == 0):
+        arr.reverse()
+    else:
+        for l in range(n-1,k,-1):
+            if (arr[l] > arr[k]):
+                break
+        arr[k],arr[l]=arr[l],arr[k]
+        arr=arr[:k+1]+arr[:k:-1]
+    return arr
+        
+arr=[1,2,3,6,4,2]
+n=len(arr)
+print(nextPermutation(arr,n))
