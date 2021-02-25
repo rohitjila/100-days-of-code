@@ -1,0 +1,15 @@
+def balance(m,h):
+    bmi=(m//(h*h))
+    if bmi <= 18:
+        return 1
+    elif (bmi >18 and bmi <25):
+        return 2
+    elif (bmi >=25 and bmi <30 ):
+        return 3
+    elif bmi >= 30:
+        return 4
+t=int(input())
+for i in range(t):
+    m,h=map(int,input().split())
+    print(balance(m,h))
+    
