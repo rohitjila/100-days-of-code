@@ -1,0 +1,36 @@
+t=int(input())
+for i in range(t):
+    d,c=map(int,input().split())
+    arr1=list(map(int,input().split()))
+    arr2=list(map(int,input().split()))
+    a=sum(arr1)
+    b=sum(arr2)
+    k=a+b+2*d
+    if (a >= 150 and b >= 150):
+        e=c+a+b
+        if (e < k):
+            print("YES")
+        else:
+            print("NO")
+    elif (a >= 150 and b < 150):
+        f=c+a
+        g=f+b+d
+        if (g < k):
+            print("YES")
+        else:
+            print("NO")
+    elif (b >= 150 and a < 150):
+        h=c+b
+        i=h+a+d
+        if (i < k):
+            print("YES")
+        else:
+            print("NO")
+    elif (a < 150 and b < 150):
+        print("NO")
+    
+        
+        
+       
+    
+    
