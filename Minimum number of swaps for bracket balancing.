@@ -23,4 +23,25 @@ def string(s):
     return ans
 s="]][["
 print(string(s))
-        
+   
+#Optimal Solution
+
+def string(s):
+    n=len(s)
+    ans=0
+    open=0
+    close=0
+    fault=0
+    for i in range(n):
+        if (s[i] ==']'):
+            close+=1
+            fault=close - open
+        else:
+            open+=1
+            if (fault > 0):
+                ans+=fault
+                fault-=1
+    return ans
+for i in range(int(input())):
+    s=input()
+    print(string(s))
