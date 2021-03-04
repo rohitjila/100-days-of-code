@@ -1,0 +1,26 @@
+# ]][[
+def string(s):
+    s=list(s)
+    n=len(s)
+    arr=[]
+    for i in range(n):
+        if s[i] == '[':
+            arr.append(i)
+    ans=0
+    count=0
+    idx=0
+    for i in range(n):
+        if (s[i] == '['):
+            count+=1
+            idx+=1
+        else:
+            count-=1
+            if (count < 0):
+                ans+=arr[idx] - i
+                s[i],s[arr[idx]]=s[arr[idx]],s[i]
+                count=1
+                idx+=1
+    return ans
+s="]][["
+print(string(s))
+        
