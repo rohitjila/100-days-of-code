@@ -1,0 +1,63 @@
+//C++ program
+#include <bits/stdc++.h>
+using namespace std;
+
+char firstRep(string s)
+    {
+        int hashStr[26] = {0};
+        
+        for(int i = 0; i < s.size(); i++)
+        {
+            hashStr[s[i] - 'a']++;
+        }
+        
+        for(int i = 0; i < s.size(); i++)
+        {
+            if(hashStr[s[i] - 'a'] > 1)
+            {
+                return s[i];
+            }
+        }
+        
+        return -1;
+    }
+
+
+int main()
+{
+    string s;
+    cin>>s;
+    cout<<firstRep(s)<<endl;
+    return 0;
+}
+
+#python program
+def string(s):
+    for i in range(len(s)):
+        if (s.count(s[i]) > 1):
+            return s[i]
+    return -1
+s="geeksforgeeks"
+print(string(s))
+
+#2nd method python
+
+def string(s):
+    n=len(s)
+    # arr=[]
+    hash_map={}
+    for i in range(n):
+        if s[i] in hash_map:
+            hash_map[s[i]]+=1
+        else:
+            hash_map[s[i]]=1
+    for i in range(len(s)):
+        if (hash_map[s[i]] > 1):
+            return s[i]
+            # arr.append(hash_map[s[i]])
+    # for i in range(len(arr)):
+    #     if (arr[i] > 1):
+    #         return (s[i])
+    return -1
+s="abbcdde"
+print(string(s))
