@@ -1,0 +1,42 @@
+#1st method python-3
+def array(arr,n):
+    s=n*((n+1)/2)
+    a=sum(arr)
+    b=s-a
+    return int(b)
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    print(array(arr,n))
+    
+    
+  2nd Method C++
+  #include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while (t--)
+	{
+	    int n;
+	    cin>>n;
+	    int arr[10000];
+	    for(int i=0; i<n-1; i++)
+	    {
+	        cin>>arr[i];
+	    }
+	    int s=(n*(n+1)/2);
+	    int sum=0;
+	    for(int i=0; i<n-1; i++)
+	    {
+	        sum+=arr[i];
+	    }
+	    int c=s-sum;
+	    cout<<c<<endl;
+	    
+	    
+	}
+	return 0;
+}
