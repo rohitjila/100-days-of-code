@@ -1,0 +1,26 @@
+no_of_chars=256
+def max_char(str,n):
+    count=[0]*no_of_chars
+    for i in range(n):
+        count[ord(str[i])]+=1
+    max_distance=0
+    for i in range(no_of_chars):
+        if (count[i] != 0):
+            max_distance+=1
+    return max_distance
+def string(str):
+    n=len(str)
+    max_distance=max_char(str,n)
+    minl=n
+    for i in range(n):
+        for j in range(n):
+            subt=str[i:j]
+            subt_len=len(subt)
+            sub_char=max_char(subt,subt_len)
+            
+            if (subt_len < minl and sub_char== max_distance):
+                if minl > sub_char:
+                    minl=sub_char
+    return minl
+s="aabcbcdbca"
+print(string(s))
