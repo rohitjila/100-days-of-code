@@ -1,24 +1,20 @@
-def string(s):
-    arr=[0]*len(s)
-    count=0
-    i=0
-    j=1
-    while (j < len(s)):
-        if (s[i] == s[j]):
-            arr[j]=i+1
-            i+=1
-            j+=1
-        else:
-            if (i != 0):
-                i=arr[i-1]
-            else:
-                j+=1
-    return (arr[len(s)-1])
-def findMin(s):
-    concat=s+"&"+s[::-1]
-    print(concat)
-    l=string(concat)
-    res=len(s)-l
-    return res
-s="ABC"
-print(findMin(s))
+def ispalindrome(s):
+    n=len(s)
+    for i in range(n):
+        if (s[i] != s[n-i-1]):
+            return False
+    return True
+def string1(s):
+    cnt = 0
+    flag = 0
+    while(len(s) > 0): 
+        if(ispalindrome(s)): 
+            flag = 1
+            break
+        else: 
+            cnt += 1
+            s = s[:-1] 
+    if(flag): 
+        print(cnt) 
+st="AACECAAAA"
+string1(st)
