@@ -1,0 +1,19 @@
+from collections import defaultdict
+def string(a,b):
+    n=len(a)
+    m=len(b)
+    if (n != m):
+        return False
+    a_hash=defaultdict(lambda : 0)
+    b_hash=defaultdict(lambda : 0)
+    for i in range(n):
+        if (not a_hash[a[i]] and not b_hash[b[i]]):
+            a_hash[a[i]]=b[i]
+            b_hash[b[i]]=a[i]
+        
+        elif (a_hash[a[i]] != b[i]):
+            return False
+    return True
+a="aab"
+b="xyz"
+print(string(a,b))
