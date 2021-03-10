@@ -1,0 +1,26 @@
+1st method 
+
+def string(s,p):
+    s=sorted(s)
+    p=sorted(p)
+    if (s == p):
+        print("True")
+    else:
+        print("False")
+s="abc"
+p="god"
+string(s,p)
+
+2nd method 
+
+from collections import defaultdict
+def string(s,p):
+    s_hash=defaultdict(lambda : 0)
+    p_hash=defaultdict(lambda : 0)    
+    if (s_hash == p_hash):
+        return True
+    else:
+        return False
+s="dog"
+p="god"
+print(string(s,p))
