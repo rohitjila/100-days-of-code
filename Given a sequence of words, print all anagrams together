@@ -1,0 +1,16 @@
+from collections import defaultdict
+def Anagrams(s,n):
+    d=defaultdict(list)
+    for i,e in enumerate(s):
+        e=("".join(sorted(e)))
+        d[e].append(s[i])
+    res=[]
+    for l in d.values():
+        res.append(l)
+    for grp in (res):
+        for word in grp:
+            print(word,end=" ")
+        print()
+s=["cat", "dog", "tac", "god", "act"]
+n=len(s)
+Anagrams(s,n)
