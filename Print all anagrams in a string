@@ -1,0 +1,27 @@
+def string(s,p):
+    n=len(s)
+    m=len(p)
+    ans=[]
+    if (n < m):
+        return ans
+    s_hash=[0]*26
+    p_hash=[0]*26
+    left=0
+    right=0
+    while (right < m):
+        s_hash[ord(s[right])- ord('a')]+=1
+        p_hash[ord(p[right])-ord('a')]+=1
+        right+=1
+    right-=1
+    while (right < n):
+        if (p_hash == s_hash):
+            ans.append(left)
+        right+=1
+        if (right != n):
+            s_hash[ord(s[right])-ord('a')]+=1
+        s_hash[ord(s[left])-ord('a')]-=1
+        left+=1
+    return ans
+s="cbaebabacd"
+p="abc"
+print(string(s,p))
