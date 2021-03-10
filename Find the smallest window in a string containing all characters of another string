@@ -1,0 +1,35 @@
+from collections import defaultdict
+def string(s1,s2):
+    n=len(s1)
+    m=len(s2)
+    curr_str=defaultdict(lambda : 0)
+    patt_str=defaultdict(lambda : 0)
+    if (n < m):
+        return -1
+    count=0
+    start=0
+    start_index=-1
+    min_l=float('inf')
+    for j in range(m):
+        patt_str[s2[j]]+=1
+    for j in range(n):
+        curr_str[s1[j]]+=1
+        
+        if (curr_str[s1[j]] <= patt_str[s1[j]]):
+            count+=1
+        if count == m:
+            while (curr_str[s1[start]] > patt_str[s1[start]] or patt_str[s1[start]] == 0):
+                if (curr_str[s1[start]] > patt_str[s1[start]]):
+                    curr_str[s1[start]]-=1
+                start+=1
+            len_window=j-start+1
+            print(len_window)
+            if (min_l > len_window ):
+                min_l=len_window
+                start_index=start
+    if start_index == -1:
+        return -1
+    return str(s1[start_index : start_index+min_l])
+s1="abcdefgh"
+s2="agh"
+print(string(s1,s2))
