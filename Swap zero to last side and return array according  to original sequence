@@ -1,0 +1,25 @@
+# 1st Method
+def array(arr,n):
+    count=0
+    for i in range(n):
+        if (arr[i] != 0):
+            arr[count]=arr[i]
+            count+=1
+    while (count < n):
+        arr[count]=0
+        count+=1
+    return arr
+arr=[0,1,-2,3,4,0,5,-27,9,0]
+n=len(arr)
+print(array(arr,n))
+
+#2nd Method
+def array(arr,n):
+    for i in range(n):
+        if (arr[i] == 0):
+            arr.pop(i)
+            arr.append(0)
+    return arr
+arr=[0,1,-2,3,4,0,5,-27,9,0]
+n=len(arr)
+print(array(arr,n))
