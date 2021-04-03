@@ -1,0 +1,13 @@
+def knapsack(wt,val,w,n):
+    if (n == 0 or w == 0):
+        return 0
+    if (wt[n-1] > w):
+        return knapsack(wt,val,w,n-1)
+    else:
+        return max(knapsack(wt,val,w,n-1),
+                val[n-1] + knapsack(wt,val,w-wt[n-1],n-1))
+wt=[3,2,4]
+val=[6,8,7]
+w=8
+n=len(wt)
+print(knapsack(wt,val,w,n))
