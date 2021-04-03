@@ -1,0 +1,24 @@
+# def Sum(n):
+#     if n <= 1:
+#         return 1
+#     return (n + Sum(n-1))
+# n=int(input())
+# print(Sum(n))
+
+# def fact(n):
+#     if n <= 1:
+#         return 1
+#     return (n * fact(n-1))
+# n=int(input())
+# print(fact(n))
+
+# def fibo(n):
+#     if n == 0:
+#         return 0
+#     if n == 1:
+#         return 1
+#     return (fibo(n-1) + fibo(n-2))
+# n=int(input())
+# for i in range(n):
+#     print(fibo(i),end=" ")
+# print()
