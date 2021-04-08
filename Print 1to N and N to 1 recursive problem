@@ -1,0 +1,24 @@
+#Print 1 to n using recursive method
+#I-B-H Method - I-B-H Method - Induction-Base-Hypothesis Method
+def Print(n):
+    if n == 1:
+        print(1,end=" ")
+    else:
+        Print(n-1)
+        print(n,end=" ")
+n=7
+Print(n)
+
+
+#Print N to 1  using recursive method
+#I-B-H Method - Induction-Base-Hypothesis Method
+
+def Print(n):
+    if n == 1:
+        print(1,end=" ")
+    else:
+        print(n,end=" ")
+        Print(n-1)
+       
+n=7
+Print(n)
