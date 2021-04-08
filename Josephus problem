@@ -1,0 +1,40 @@
+#purely recursive function
+def sort(arr,k,index):
+    if (len(arr) == 1):
+        print(arr[0])
+    else:
+        index=(index+k)%len(arr)
+        del arr[index]
+        sort(arr,k,index)
+n=int(input())
+k=int(input())
+arr=[]
+for i in range(1,n+1):
+    arr.append(i)
+k=k-1
+index=0
+sort(arr,k,index)
+
+
+#when Index and position both starts with 1
+def sort(n,k):
+    if (n == 1):
+        return 1
+    else:
+        return (sort(n-1,k)+k-1)%n+1
+n=3
+k=2
+print(sort(n,k))
+
+
+# when index and position both starts with zero
+def sort(n,k):
+    if (n == 1):
+        return 0
+    else:
+        return (sort(n-1,k)+k)%n
+n=3
+k=2
+print(sort(n,k))
+
+    
