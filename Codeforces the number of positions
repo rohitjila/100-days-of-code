@@ -1,0 +1,5 @@
+def array(n,a,b):
+    mn=min(n-a,b+1)
+    print(mn)
+n,a,b=map(int,input().split())
+array(n,a,b)
