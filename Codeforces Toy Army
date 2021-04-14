@@ -1,0 +1,5 @@
+def array(n):
+    m=3*((n+1)//2)
+    return m
+n=int(input())
+print(array(n))
