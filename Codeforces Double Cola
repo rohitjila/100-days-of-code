@@ -1,0 +1,13 @@
+s=[
+    "Sheldon",
+    "Leonard",
+    "Penny",
+    "Rajesh",
+    "Howard"
+]
+n=int(input())
+n-=1
+while(n>=5):
+    n=n-5
+    n=n//2
+print(s[n])
