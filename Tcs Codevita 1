@@ -1,0 +1,10 @@
+#game stones tcs codevita
+
+def array(n):
+    n=n%4 + n//4
+    if n%2 == 0:
+        print("No")
+    else:
+        print("Yes")
+n=int(input())
+array(n)
