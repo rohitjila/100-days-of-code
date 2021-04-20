@@ -1,0 +1,29 @@
+#count all the distinct pairs which is divisible by given numbers
+#hackwithinfy
+
+T=int(input())
+for _ in range(T):
+    arr=list(map(int,input().split()))
+    arr=arr[1:]
+    m=int(input())
+    remainders = {}
+    for num in arr:
+        curr_num = num % m
+        if curr_num in remainders:
+            remainders[curr_num]+=1
+        else:
+            remainders[curr_num]=1
+    num_pairs=0
+    for rem in remainders:
+        complement = m - rem
+        pairs = 0
+        if complement == m or (2*complement == m):
+            pairs = (remainders[rem]*(remainders[rem-1]))//2
+        elif complement in remainders:
+            pairs=remainders[rem]*remainders[complement]
+            remainders[rem]=0
+        num_pairs=num_pairs + pairs
+    print(num_pairs)
+            
+            
+            
