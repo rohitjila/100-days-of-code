@@ -1,0 +1,13 @@
+#degenarate = if sum of two smaller side is greater than third side it is called degenarate triangle.
+#non-degenerate = if sum of two smaller side is equal to third side it is called non-degenarate triangle.
+
+def triangle(arr):
+    arr.sort()
+    if(a[0]+a[1]>a[2] or a[0]+a[2]>a[3] or a[1]+a[2]>a[3] or a[0]+a[1]>a[3]):
+        return ("TRIANGLE")
+    if(a[0]+a[1] == a[2] or a[0]+a[2] == a[3] or a[1]+a[2] == a[3]  or a[0]+a[1] == a[3]):
+        return ("SEGMENT")
+    else:
+        return ("IMPOSSIBLE")
+a=list(map(int,input().split()))
+print(triangle(a))
