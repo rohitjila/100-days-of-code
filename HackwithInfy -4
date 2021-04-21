@@ -1,0 +1,10 @@
+#hackwithinfy prepinsta 2nd question
+t=int(input())
+for i in range(t):
+    a,b,c,x,y=list(map(int,input().split()))
+    if (a+b+c != x+y):
+        print("NO")
+    elif (x < min(a,min(b,c))) or (y < min(a,min(b,c))):
+        print("NO")
+    else:
+        print("YES")
