@@ -1,0 +1,12 @@
+def array(arr,n):
+    carry=1
+    for i in range(n-1,-1,-1):
+        arr[i]+=carry
+        carry=arr[i]//10
+        arr[i]=arr[i]%10
+    if (carry == 1):
+        arr.insert(0,1)
+    return arr
+arr=[5,9,7]
+n=len(arr)
+print(array(arr,n))
