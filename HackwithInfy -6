@@ -1,0 +1,9 @@
+# Hackwithinfy calendar module
+import calendar
+def new(dates):
+    day,month,year=[int(i) for i in dates.split()]
+    daysNumber=calendar.weekday(year,month,day)
+    days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    return (days[daysNumber])
+dates=input()
+print(new(dates))
