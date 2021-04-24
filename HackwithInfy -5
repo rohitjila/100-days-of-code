@@ -1,0 +1,8 @@
+#spoj playing with numbers
+t=int(input())
+for i in range(t):
+    white,black=map(int,input().split())
+    if black % 2 == 0:
+        print("0.000000")
+    if black % 2 != 0:
+        print("1.000000")
