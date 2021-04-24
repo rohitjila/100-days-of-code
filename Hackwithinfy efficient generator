@@ -1,0 +1,18 @@
+#hackwithinfy efficient generator
+def get_min_trips(arr,n):
+    arr.sort()
+    left_index=0
+    trips=0
+    for i in range(n-1,-1,-1):
+        if (arr[i] > 1.99):
+            trips+=1
+        elif (arr[i] <= 1.99):
+            if (arr[i] + arr[left_index] <= 3):
+                left_index+=1
+            trips+=1
+        if (left_index >= i):
+            break
+    return trips
+arr=[1.01,1.99,2.5,1.5,1.01]
+n=len(arr)
+print(get_min_trips(arr,n))        
