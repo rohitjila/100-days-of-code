@@ -1,0 +1,18 @@
+def reverse(n):
+    temp=n
+    rev=0
+    while(temp > 0):
+        dig=temp % 10
+        rev=rev*10 + dig
+        temp=temp//10
+    return rev
+def main(a,b):
+    c=reverse(a)
+    d=reverse(b)
+    e=(c+d)
+    f=reverse(e)
+    print(f)
+n=int(input())
+for i in range(n):
+    a,b=map(int,input().split())
+    main(a,b)
