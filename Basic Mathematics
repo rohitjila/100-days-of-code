@@ -1,0 +1,82 @@
+# 1. find prime number between two given bound
+
+def prime_number(n):
+    if n > 1:
+        for i in range(2,n):
+            if n % i == 0:
+                return False
+        return True 
+def find_prime(a,b):
+    for i in range(a,b+1):
+        if(prime_number(i)):
+            print(i,end=" ")
+a,b=map(int,input().split())
+find_prime(a,b)
+
+
+# 2. Gcd of two number
+def gcd(a,b):
+    if a > b:
+        small=b
+    else:
+        small=a
+        
+    for i in range(1,small+1):
+        if(a%i == 0 and b%i == 0):
+            hcf=i
+    return hcf
+a=int(input())
+b=int(input())
+print(gcd(a,b))
+
+
+#3 Find armstrong Number between two bound
+def armstrong(n):
+    temp=n
+    rev=0
+    while(temp > 0):
+        dig=temp%10
+        rev=rev+dig*dig*dig
+        temp=temp//10
+    if rev == n:
+        return True
+    else:
+        return False
+
+def find_armstrong(a,b):
+    for i in range(a,b+1):
+        if(armstrong(i)):
+            print(i,end=" ")
+a,b=map(int,input().split())
+find_armstrong(a,b)
+
+
+
+# 4 find the fibonacci series
+def fiboncci(n):
+    a=0
+    b=1
+    if n <= 0:
+        print("Enter valid number ")
+    else:
+        print(a,b,end=" ")
+        for i in range(2,n):
+            next_no=a+b
+            print(next_no,end=" ")
+            a=b
+            b=next_no
+n=int(input())
+fiboncci(n)
+
+
+5.def factorial(n):
+    if n<=0:
+        print("Enter valid number")
+    else:
+        fac=1
+        for i in range(1,n+1):
+            fac=fac*i
+        print(fac)
+n=int(input())
+factorial(n)
+ 
