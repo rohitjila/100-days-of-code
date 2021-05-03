@@ -1,0 +1,7 @@
+n=int(input())
+arr=list(map(int,input().split()))
+Sum=sum(arr)
+if (Sum % n == 0):
+    print(n)
+else:
+    print(n-1)
