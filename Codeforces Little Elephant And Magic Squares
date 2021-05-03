@@ -1,0 +1,14 @@
+a,b,c=map(int,input().split())
+d,e,f=map(int,input().split())
+g,h,i=map(int,input().split())
+Sum=(b+c+d+f+g+h)//2
+a=Sum -b - c
+e=Sum -d -f
+i=Sum -g -h
+print(a,b,c)
+print(d,e,f)
+print(g,h,i)
+
+#a+b+c+d+e+f+g+h+i=3s
+#a+e+i=s
+#b+c+d+f+g+h=2s
