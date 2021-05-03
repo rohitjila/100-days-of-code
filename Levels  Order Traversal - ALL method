@@ -1,0 +1,68 @@
+Level order traversal 
+method 1
+Time Complexity - O(n^2)
+Space Complexity - O(n)
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+def PrintLevelOrder(root):
+    h=height(root)
+    for i in range(1,h+1):
+        PrintLevel(root,i)
+        
+def PrintLevel(root,level):
+    if root is None:
+        return
+    if level == 1:
+        print(root.data,end=" ")
+    elif level > 1:
+        PrintLevel(root.left,level-1)
+        PrintLevel(root.right,level-1)
+    
+def height(node):
+    if node is None:
+        return 0
+    else:
+        lleft=height(node.left)
+        rright=height(node.right)
+        
+        if lleft > rright:
+            return lleft+1
+        else:
+            return rright+1
+rohit=Node(1)
+rohit.left=Node(2)
+rohit.right=Node(3)
+rohit.left.left=Node(4)
+rohit.right.right=Node(5)
+PrintLevelOrder(rohit)
+
+
+method-2 
+Time complexity - O(n)
+Space complexity - O(n)
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+        
+def PrintLevelOrder(root):
+    queue=[]
+    queue.append(root)
+    while(len(queue) > 0):
+        print(queue[0].data,end=" ")
+        node=queue.pop(0)
+        if node.left is not None:
+            queue.append(node.left)
+        if node.right is not None:
+            queue.append(node.right)
+rohit=Node(1)
+rohit.left=Node(2)
+rohit.right=Node(3)
+rohit.left.left=Node(4)
+rohit.right.right=Node(5)
+PrintLevelOrder(rohit)
