@@ -1,0 +1,50 @@
+#Brute Force Method
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+def PrintLevelOrder(root):
+    h=height(root)
+    for i in reversed(range(1,h+1)):
+        Level(root,i)
+def Level(root,level):
+    if root is None:
+        return
+    if level == 1:
+        print(root.data,end=" ")
+    elif level > 1:
+        Level(root.left,level-1)
+        Level(root.right,level-1)
+def height(root):
+    if root is None:
+        return 0
+    else:
+        lleft=height(root.left)
+        rright=height(root.right)
+        
+        if lleft < rright:
+            return rright+1
+        else:
+            return lleft+1
+root = Node(1) 
+root.left = Node(2) 
+root.right = Node(3) 
+root.left.left = Node(4) 
+root.left.right = Node(5) 
+PrintLevelOrder(root)
+
+
+from collections import deque
+def reverseLevelOrder(root):
+    queue=deque()
+    queue.append(root)
+    ans=deque()
+    while(len(queue) > 0):
+        node=queue.popleft()
+        ans.appendleft(node.data)
+        if node.right is not None:
+            queue.append(node.right)
+        if node.left is not None:
+            queue.append(node.left)
+    return ans
