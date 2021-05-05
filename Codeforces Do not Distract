@@ -1,0 +1,18 @@
+def array(s,n):
+    arr=[]
+    for i in range(n-1):
+        if (s[i] != s[i+1]):
+            arr.append(s[i])
+    arr.append(s[-1])
+    se=set()
+    for i in range(len(arr)):
+        if arr[i] in se:
+            return ("NO")
+        else:
+            se.add(arr[i])
+    return ("YES")
+t=int(input())
+for i in range(t):
+    n=int(input())
+    s=input()
+    print(array(s,n))
