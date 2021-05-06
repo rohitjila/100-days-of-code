@@ -1,0 +1,24 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+def func(root):
+    if root is None:
+        return 0
+        global ma
+    x=func(root.left)
+    y=func(root.right)
+    ma=max(ma,x+y+1)
+    return(max(x,y)+1)
+def diameter(root):
+    global ma
+    ma=0
+    x=func(root)
+    return ma
+    
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
