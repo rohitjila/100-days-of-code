@@ -1,0 +1,7 @@
+def string(s):
+    mx=""
+    for i in range(len(s)):
+        mx=max(mx,s[i:])
+    return mx
+s="banana"
+print(string(s))
