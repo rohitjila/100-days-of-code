@@ -1,0 +1,11 @@
+# Tcs nqt 3rd number question 
+n=int(input())
+arr=list(map(int,input().split()))
+N=int(input())
+s=int(input())
+ans=1
+for i in range(0,n,s):
+    if N not in arr[i:i+s]:
+        ans=0
+        break
+print(ans)
