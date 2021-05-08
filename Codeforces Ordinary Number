@@ -1,0 +1,17 @@
+def ordinary(n):
+        if ( n <= 9):
+            return n
+        ans=0
+        for i in range(1,10):
+            chk=0
+            while(chk <= n):
+                chk*=10
+                chk+=i
+                if (chk > n):
+                    break
+                ans+=1
+        return ans
+t=int(input())
+for i in range(t):
+    n=int(input())
+    print(ordinary(n))
