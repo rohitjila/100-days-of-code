@@ -1,0 +1,37 @@
+#recursive and iterative approach of preorder traversal of binary tree.
+from collections import deque
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+    
+def preorder(root):
+    if root is None:
+        return 
+    print(root.data,end=" ")
+    preorder(root.left)
+    preorder(root.right)
+    
+def preorder(root):
+    if root is None:
+        return 
+    stack = deque()
+    stack.append(root)
+    curr=root
+    while(stack):
+        curr=stack.pop()
+        print(curr.data,end=" ")
+        if curr.right:
+            stack.append(curr.right)
+            
+        if curr.left:
+            stack.append(curr.left)
+root = Node(1)
+root.left = Node(2)
+root.right=Node(5)
+root.left.left = Node(3)
+root.left.right = Node(4)
+preorder(root)  
+
