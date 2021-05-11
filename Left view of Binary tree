@@ -1,0 +1,59 @@
+#left view of Tree using recursive and iterative method 
+#time -complexity = o(n)
+#space - complexity =o(n)
+
+#time - complexity = o(n)
+#space - complexity =o(1)
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+def LeftViewUtil(res,node,level):
+    global max_level
+    if node is None:
+        return
+    if max_level < level:
+        res.append(node.data)
+        max_level=level
+        
+    LeftViewUtil(res,node.left,level+1)
+    LeftViewUtil(res,node.right,level+1)
+    
+def LeftView(root):
+    global max_level
+    max_level=0
+    res=[]
+    LeftViewUtil(res,root,1)
+    return res
+    
+def LeftView(root):
+    if (root is None):
+        return
+    queue=[]
+    queue.append(root)
+    while(len(queue)):
+        n=len(queue)
+        for i in range(1,n+1):
+            temp=queue[0]
+            queue.pop(0)
+            if (i == 1):
+                print(temp.data ,end=" ")
+                
+            if (temp.left != None):
+                queue.append(temp.left)
+                
+            if (temp.right != None):
+                queue.append(temp.right)
+                
+root =Node(10)
+root.left =Node(2)
+root.right =Node(3)
+root.left.left =Node(7)
+root.left.right =Node(8)
+root.right.right =Node(15)
+root.right.left =Node(12)
+root.right.right.left =Node(14)
+print(LeftView(root))
+                            
+    
