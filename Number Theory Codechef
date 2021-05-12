@@ -1,0 +1,14 @@
+def gcd(a,b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b,a%b)
+def lcm(a,b):
+    c=gcd(a,b)
+    res=(a*b)//c
+    print(c,res)
+    
+t=int(input())
+for i in range(t):
+    a,b=map(int,input().split())
+    lcm(a,b)
