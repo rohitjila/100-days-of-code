@@ -1,0 +1,39 @@
+from collections import deque 
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+        
+def zigzagView(root):
+    ans=[]
+    d=deque()
+    d.append(root)
+    f=1
+    while(d):
+        arr=[]
+        n=len(d)
+        for i in range(1,n+1):
+            curr=d[0]
+            arr.append(curr.data)
+            d.popleft()
+            if (curr.left):
+                d.append(curr.left)
+            if curr.right:
+                d.append(curr.right)
+        if(f % 2 == 0): arr.reverse()
+        for i in range(len(arr)):
+            ans.append(arr[i])
+        f=not f
+    for i in range(len(ans)):
+        print(ans[i],end=" ")
+    print()
+root=Node(7)
+root.left=Node(9)
+root.right=Node(7)
+root.left.left=Node(8)
+root.left.right=Node(5)
+root.right.left=Node(6)
+root.left.left.left=Node(10)
+root.left.left.right=Node(2)
+zigzagView(root)
