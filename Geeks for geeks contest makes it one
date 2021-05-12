@@ -1,0 +1,15 @@
+import math
+def makeItOne(N):
+    moves = 0
+    while N != 1:
+        moves+=1 
+        bef=int(math.log(N,2))
+        print(bef)
+        cur=math.log(N,2)
+        if bef==cur:
+            N//=2
+        else:
+            N-=(2**bef)
+    return moves
+N=14
+print(makeItOne(N))
