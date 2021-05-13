@@ -1,0 +1,14 @@
+def solve(root):
+    global f
+    if root is None:
+        return 0
+    lh=solve(root.left)
+    rh=solve(root.right)
+    if (abs(lh - rh) > 1): 
+        f=0
+    return max(lh,rh)+1
+def isBalanced(root):
+    global f
+    f=1
+    solve(root)
+    return f
