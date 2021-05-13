@@ -1,0 +1,57 @@
+#Time Complexity - o(n)
+#Space complexity - o(n)
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+        
+def leftview(root,ans):
+    if root is None:
+        return 
+    if root.left:
+        ans.append(root.data)
+        leftview(root.left,ans)
+    elif root.right:
+        ans.append(root.data)
+        leftview(root.right,ans)
+        
+        
+def leaf(root,ans):
+    if root is None:
+        return 
+    leaf(root.left,ans)
+    if root.left is None and root.right is None:
+        ans.append(root.data)
+    leaf(root.right,ans)
+    
+def rightview(root,ans):
+    if root is None:
+        return 
+    if root.right:
+        rightview(root.right,ans)
+        ans.append(root.data)
+    elif root.left:
+        rightview(root.left,ans)
+        ans.append(root.data)
+        
+def boundary(root):
+    ans=[]
+    if root is not None:
+        ans.append(root.data)
+        leftview(root.left,ans)
+        leaf(root,ans)
+        rightview(root.right,ans)
+    return ans
+        
+root = Node(20) 
+root.left = Node(8) 
+root.left.left = Node(4) 
+root.left.right = Node(12) 
+root.left.right.left = Node(10) 
+root.left.right.right = Node(14) 
+root.right = Node(22) 
+root.right.right = Node(25) 
+print(boundary(root))
+        
+    
