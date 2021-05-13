@@ -1,0 +1,19 @@
+#Time complexity - o(N)
+#Space Complexity - o(N)
+from collections import deque#Complete the function below
+def diagonal(root):
+    out=[]
+    node=root
+    q=deque()
+    while(node):
+        out.append(node.data)
+        if node.left:
+            q.appendleft(node.left)
+        if node.right:
+            node=node.right
+        else:
+            if(len(q) >= 1):
+                node=q.pop()
+            else:
+                node=None
+    return out
