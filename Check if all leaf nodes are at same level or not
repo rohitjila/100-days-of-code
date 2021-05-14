@@ -1,0 +1,16 @@
+class Solution:
+    def solve(self,root,h):
+        if root:
+            if not root.left and not root.right:
+                self.depth.append(h)
+            else:
+                self.solve(root.left,h+1)
+                self.solve(root.right,h+1)
+    def check(self, root):
+        self.depth=[]
+        h=0
+        self.solve(root,h)
+        if (len(set(self.depth))) == 1:
+            return 1
+        else:
+            return 0
