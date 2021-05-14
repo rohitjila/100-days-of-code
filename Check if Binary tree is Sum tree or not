@@ -1,0 +1,15 @@
+class Solution:
+    def solve(self,root):
+        global f
+        if root is None:
+            return 0
+        if (not root.left and not root.right): return root.data
+        a=self.solve(root.left)
+        b=self.solve(root.right)
+        if (a+b != root.data): f=0
+        return a+b+root.data
+    def isSumTree(self,root):
+        global f
+        f=1
+        self.solve(root)
+        return f
