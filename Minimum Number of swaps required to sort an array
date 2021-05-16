@@ -1,0 +1,27 @@
+# 1. copy array
+# 2.sort array
+# 3.check the value of temp[i] == arr[i]
+# if not then swap the value with original value where it must be 
+# 4.after then change the value of original position
+# 5.finally return the  answer
+
+def array(arr,n):
+    ans=0
+    h={}
+    temp=arr.copy()
+    temp.sort()
+    for i in range(n):
+        h[arr[i]]=i
+    init=0
+    for i in range(n):
+        if(arr[i] != temp[i]):
+            ans+=1
+            init=arr[i]
+            arr[i],arr[h[temp[i]]]=arr[h[temp[i]]],arr[i]
+            h[init]=h[temp[i]]
+            h[temp[i]]=i
+    return ans
+arr=[1,5,4,3,2]
+n=len(arr)
+print(array(arr,n))
+            
