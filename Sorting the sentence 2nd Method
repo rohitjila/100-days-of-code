@@ -1,0 +1,9 @@
+def sortSentence( s: str) -> str:
+    words = s[::-1].split()
+    print(words)
+    words.sort()
+    print(words)
+    result = [ word[1:][::-1] for word in words ]
+    return " ".join(result)
+s="is2 sentence4 This1 a3"
+print(sortSentence(s))
