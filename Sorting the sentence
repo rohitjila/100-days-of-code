@@ -1,0 +1,20 @@
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        si=" "
+        hash_map={}
+        arr4=[]
+        arr=[]
+        arr1=[]
+        s=s.split()
+        for i in range(len(s)):
+            arr.append(s[i][-1])
+        arr3=[]
+        arr3=arr.copy()
+        arr3.sort()
+        for i in range(len(s)):
+            arr1.append(s[i][:-1])
+        for i in range(len(s)):
+            hash_map[arr[i]]=arr1[i]
+        for i in range(len(arr3)):
+            arr4.append(hash_map[arr3[i]])
+        return(si.join(arr4))
