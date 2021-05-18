@@ -1,0 +1,23 @@
+def prime(n):
+    if n > 1:
+        for i in range(2,n):
+            if (n % i == 0):
+                return False
+        return True
+def array(l,r):
+    arr=[]
+    if l == r:
+        print(0)
+        return
+    for i in range(l,r+1):
+        if(prime(i)):
+            arr.append(i)
+    if (len(arr) == 0):
+        print(-1)
+    else:
+        print(max(arr)-min(arr))
+
+t=int(input())
+for i in range(t):
+    l,r=map(int,input().split())
+    array(l,r)
