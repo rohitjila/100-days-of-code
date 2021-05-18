@@ -1,0 +1,19 @@
+def coronavirus(s,t):
+    if (s == t):
+        return ("POSITIVE")
+    n=len(s)
+    m=len(t)
+    
+    j=0
+    for i in range(n):
+        if (s[i] == t[j]):
+            j+=1
+            
+        if (j== len(t)):
+            return ("POSITIVE")
+    return ("NEGATIVE")
+s=input()
+n=int(input())
+for i in range(n):
+    t=input()
+    print(corona(s,t))
