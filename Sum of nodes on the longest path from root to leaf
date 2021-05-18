@@ -1,0 +1,38 @@
+#Time Complexity - O(n)
+class getNode:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+        
+def longestPath(root,s,l,maxSum,maxLen):
+    if not root:
+        if (maxLen[0] < l):
+            maxLen[0] = l
+            maxSum[0] = s
+            
+        elif (maxLen == l and maxSum < s):
+            maxSum[0] = s
+            
+        return 
+    longestPath(root.left,s+root.data,l+1,maxSum,maxLen)
+    longestPath(root.right,s+root.data,l+1,maxSum,maxLen)
+def longest(root):
+    if not root:
+        return 0
+        
+    maxSum = [-999999999999]
+    maxLen =[0]
+    
+    longestPath(root,0,0,maxSum,maxLen)
+    return maxSum[0]
+    
+root = getNode(4)               
+root.left = getNode(2)       
+root.right = getNode(5)       
+root.left.left = getNode(7)       
+root.left.right = getNode(1)   
+root.right.left = getNode(2)            
+root.right.right = getNode(3)       
+root.left.right.left = getNode(6)  
+print(longest(root))
