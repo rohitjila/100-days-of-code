@@ -1,0 +1,11 @@
+def smallestMultiple(n):
+    for i in range(2,21):
+        if (n % i != 0):
+            return False
+    return True
+n=20
+while(True):
+    if(smallestMultiple(n)):
+        break
+    n+=20
+print(n)
