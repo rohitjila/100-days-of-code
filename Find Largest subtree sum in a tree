@@ -1,0 +1,28 @@
+#Largest Subtree Sum in a tree
+# Time Complexity - O(n)
+# Space Complexity - O(n)
+class newNode: 
+    def __init__(self, data): 
+        self.data = data
+        self.left = None
+        self.right = None
+def Sumf(root, ans): 
+    if (root == None):  
+        return 0
+    curr=(root.data + Sumf(root.left,ans) + Sumf(root.right,ans))
+    ans[0] = max(ans[0], curr)  
+    return curr
+def Sum(root): 
+    if root is None:
+        return 0
+    ans=[-999999999]
+    Sumf(root,ans)
+    return ans[0]
+root = newNode(1)  
+root.left = newNode(-2)  
+root.right = newNode(3)  
+root.left.left = newNode(4)  
+root.left.right = newNode(5)  
+root.right.left = newNode(-6)  
+root.right.right = newNode(2)  
+print(Sum(root)) 
