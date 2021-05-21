@@ -1,0 +1,40 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+def lca(root,a,b):
+    if root is None:
+        return None
+    if(root.data == a or root.data == b): return root.data
+    l=lca(root.left,a,b)
+    r=lca(root.right,a,b)
+    if(l and r): return root
+    if(l):return l
+    return r
+    
+def solve(root,val):
+    if root is None:
+        return 0
+    if (root.data == val): return 1
+    a=solve(root.left,val)
+    b=solve(root.right,val)
+    if(not a and not b):return 0
+    else:return a+b+1
+    
+def final(root,a,b):
+    LCA=lca(root,a,b)
+    x=solve(LCA,a)
+    y=solve(LCA,b)
+    return x+y-2
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.right.right= Node(7)
+root.right.left = Node(6)
+root.left.right = Node(5)
+root.right.left.right = Node(8)
+a=3
+b=4
+print(final(root,a,b))
