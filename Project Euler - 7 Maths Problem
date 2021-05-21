@@ -1,0 +1,17 @@
+from math import sqrt
+number = 1
+flag = 0
+count=0
+answer=1
+while(count < 10001):
+    flag=0
+    if (number == 1): flag=1
+    if(number % 2 == 0): flag=1
+    if(number == 2): flag = 0
+    for i in range(3,int(sqrt(number))+1,2):
+        if (number % i == 0): flag=1
+    if (flag == 0):
+        answer = number
+        count+=1
+    number+=1
+print(answer)
