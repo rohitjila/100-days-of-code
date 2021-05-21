@@ -1,0 +1,24 @@
+# Time Complexity - O(n)
+class Node:
+    def __init__(self,data):
+        self.data=data  
+        self.left=None
+        self.right=None
+
+def solve(root,n1,n2):
+    if root is None:
+        return
+    if (root.data == n1 or root.data == n2): return root.data
+    l=solve(root.left,n1,n2)
+    r=solve(root.right,n1,n2)
+    if(l and r): return root
+    if(l): return l
+    else: return r
+    
+root=Node(1)
+root.left=Node(2)
+root.left.left=Node(3)
+n1=2
+n2=3
+print(solve(root,n1,n2))
+    
