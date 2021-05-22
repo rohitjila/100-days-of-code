@@ -1,0 +1,27 @@
+# Time Complexity - O(n)
+class newNode:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+def solve(root,node,k):
+    if root is None:
+        return 
+    if (root.data == node or solve(root.left,node,k) or 
+    solve(root.right,node,k)):
+        if(k[0] > 0):
+            k[0]-=1
+        elif(k[0] == 0):
+            print(root.data)
+            return 
+        return root
+root = newNode(1)  
+root.left = newNode(2)  
+root.right = newNode(3)  
+root.left.left = newNode(4)  
+root.left.right = newNode(5)  
+k = [2] 
+node = 5
+parent=solve(root,node,k)  
+if (parent): 
+    print("-1") 
