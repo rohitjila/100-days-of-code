@@ -1,0 +1,16 @@
+def tape(n,m,x,arr):
+    arr=sorted(arr)
+    worst=arr[-1] - arr[0] + 1
+    a=[]
+    for i in range(n-1):
+        c=arr[i+1]-arr[i]-1
+        a.append(c)
+    a.sort(reverse=True)
+    d=0
+    for i in range(x-1):
+        d+=a[i]
+    ans=worst - d
+    print(ans)
+n,m,x=map(int,input().split())
+arr=list(map(int,input().split()))
+tape(n,m,x,arr)
