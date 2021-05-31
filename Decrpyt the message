@@ -1,0 +1,31 @@
+t=int(input())
+for i in range(t):
+    k=int(input())
+    s=input()
+    for i in s:
+        if (k <= 25):
+            if (i == "."):
+                print(" ",end=" ")
+            if (ord(i) >= 97 and ord(i) <= 122):
+                ch=ord(i) - 97
+                ch=(ch+k)%26
+                ch=ch+97
+                print(chr(ch),end="")
+            elif (ord(i) >=65 and ord(i) <= 90):
+                ch=ord(i) - 65
+                ch=(ch+k)%26
+                ch+=65
+                print(chr(ch),end="")
+        else:
+            if (i == "."):
+                print(" ",end="")
+            if (ord(i) >= 97 and ord(i) <= 122):
+                ch=ord(i) - 97
+                ch=(ch+k)%26
+                ch=ch+65
+                print(chr(ch),end="")
+            elif (ord(i) >=65 and ord(i) <= 90):
+                ch=ord(i) - 65
+                ch=(ch+k)%26
+                ch+=97
+                print(chr(ch),end="")
