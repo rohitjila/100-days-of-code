@@ -1,0 +1,8 @@
+t=int(input())
+for i in range(t):
+    x,m,d=map(int,input().split())
+    mx=0
+    a=x*m
+    b=x+d
+    mx=max(a,b)
+    print(mx)
