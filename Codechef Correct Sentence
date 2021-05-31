@@ -1,0 +1,21 @@
+def proficient(l):
+    for i in l:
+        l1=False
+        l2=False
+        for j in i:
+            if j in "abcdefghijklm":
+                l1=True
+            elif j in "NMOPQRSTUVWXYZ":
+                l2=True
+            else:
+                return False
+        if l1 == True and l2 == True:
+            return False
+    return True
+t=int(input())
+for i in range(t):
+    l=list(map(str,input().split()))
+    if (proficient(l[1:])):
+        print("YES")
+    else:
+        print("NO")
