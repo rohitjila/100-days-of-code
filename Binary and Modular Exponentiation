@@ -1,0 +1,16 @@
+#Time Complexity - O(logy)
+def power(x, y):
+    res = 1
+     
+    while (y > 0):
+        if ((y & 1) == 1) :
+            res = res * x
+        y = y // 2 # y >> 1
+        x = x * x
+     
+    return res
+x,y=2,5
+print(power(x,y))
+
+#if p is given in modular exponentiation
+#just divide the p with result and x
