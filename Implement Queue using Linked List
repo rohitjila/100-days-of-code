@@ -1,0 +1,45 @@
+# Time Complexity -enqueue O(1)
+# Time Complexity - dequeueO(1)
+class Node:
+    def __init__(self,head):
+        self.head=head
+        self.next=None
+        
+class Queue:
+    def __init__(self):
+        self.front=self.rear=None
+        
+    def isEmpty(self):
+        return self.front == None
+        
+    def enqueue(self,data):
+        temp=Node(data)
+        if self.rear == None:
+            self.rear=self.front=temp
+            return
+        self.rear.next=temp
+        self.rear=temp
+        
+    def dequeue(self):
+        if self.isEmpty():
+            return
+        else:
+            temp=self.front
+            self.front=self.front.next
+            temp=None
+            
+            if (self.front == None):
+                self.rear=None
+    
+                
+q=Queue()
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+q.enqueue(4)
+q.dequeue()
+print(q.front.head)
+print(q.rear.head)
+
+            
+        
