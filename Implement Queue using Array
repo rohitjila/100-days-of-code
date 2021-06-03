@@ -1,0 +1,45 @@
+# Time Complexity - O(1) -> enqueue   
+# Time Complexity - O(n) -> dequeue
+class Node:
+    def __init__(self,c):
+        self.arr=[]
+        self.front=self.rear=0
+        self.capacity=c        
+    
+            
+    def enqueue(self,data):
+        if self.capacity == self.rear:
+            print("Queue is Full")
+        else:
+            self.arr.append(data)
+            self.rear+=1
+            
+    def dequeue(self):
+        if self.front == self.rear:
+            print("Queue is Empty")
+        else:
+            x=self.arr.pop(0)
+            self.rear-=1
+            
+    def display(self):
+        for i in self.arr:
+            print(i,end=" ")
+            
+    def peek(self):
+        if self.front == self.rear:
+            print("queue is empty")
+        else:
+            return(self.arr.pop(0))
+ob=Node(4)
+ob.enqueue(1)
+ob.enqueue(2)
+ob.enqueue(3)
+ob.enqueue(4)
+print(ob.peek())
+ob.display()
+ob.dequeue()
+ob.dequeue()
+print()
+ob.display()
+print()
+print(ob.peek())
