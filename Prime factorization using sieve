@@ -1,0 +1,19 @@
+maxN=100001
+arr=[0 for i in range(maxN+1)]
+def sieve():
+    for i in range(maxN+1):
+        arr[i]=-1
+    for i in range(2,maxN+1):
+        if (arr[i] == -1):
+            for j in range(i,maxN+1,i):
+                if (arr[j] == -1):
+                    arr[j]=i
+sieve()
+def prime(x):
+    ret=[]
+    while(x != 1):
+        ret.append(arr[x])
+        x=x//arr[x]
+    return ret
+x=12246
+print(prime(x))
