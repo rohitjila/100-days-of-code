@@ -1,0 +1,12 @@
+def BST(self,root,prev):
+        if (root != None):
+            if (self.BST(root.left,prev) == False):
+                return False
+            if (prev != None and root.data <= prev.data):
+                return False
+            prev=root
+            self.BST(root.right,prev)
+        return True
+    def isBST(self, root):
+        prev=None
+        return self.BST(root,prev)
