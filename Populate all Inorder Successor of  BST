@@ -1,0 +1,45 @@
+class BST:
+    def __init__(self,key):
+        self.key=key
+        self.lchild=None
+        self.rchild=None
+    
+    def insert(self,data):
+        if self.key is None:
+            self.key=data
+            return 
+        if self.key == data:
+            return 
+        
+        if self.key > data:
+            if self.lchild:
+                self.lchild.insert(i)
+            else:
+                self.lchild=BST(data)
+                
+        else:
+            if self.rchild:
+                self.rchild.insert(i)
+            else:
+                self.rchild=BST(data)
+
+def find(root ,arr):
+    if root is None:
+        return
+    find(root.lchild,arr)
+    arr.append(root.key)
+    find(root.rchild,arr)
+def inorder(root):
+    if root is None:
+        return
+    arr=[]
+    find(root,arr)
+    for i in range(len(arr)-1):
+        print(str(arr[i])+" " + "->"+ " "+str(arr[i+1]),end=" ")
+    print(str(arr[-1]) + "->" + str(-1),end=" ")
+    
+root=BST(None)
+l=[1,2,3]
+for i in l:
+    root.insert(i)
+inorder(root)
