@@ -1,0 +1,12 @@
+import math
+def triplet(limit):
+    for a in range(3,limit):
+        for b in range(a+1,limit):
+            c=math.pow(a,2)+math.pow(b,2)
+            c=math.sqrt(c)
+            if (a+b+c == limit):
+                ans=a*b*c
+                
+    return int(ans)
+limit=1000
+print(triplet(limit))
