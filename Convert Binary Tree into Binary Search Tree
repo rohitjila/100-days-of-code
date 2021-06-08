@@ -1,0 +1,21 @@
+def Binary(self,root,arr):
+        if root is None:
+            return
+        arr.append(root.data)
+        self.Binary(root.left,arr)
+        self.Binary(root.right,arr)
+    def binaryTreeToBST(self, root):
+        if root is None:
+            return
+        arr=[]
+        self.Binary(root,arr)
+        arr.sort()
+        self.array(root,arr)
+        
+    def array(self,root,arr):
+        if root is None:
+            return
+        self.array(root.left,arr)
+        root.data=arr[0]
+        arr.pop(0)
+        self.array(root.right,arr)
