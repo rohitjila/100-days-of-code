@@ -1,0 +1,18 @@
+n=int(input())
+normal=set()
+others=set()
+for i in range(n):
+    s=input()
+    if s[0] == "!":
+        others.add(s[1:])
+    else:
+        normal.add(s)
+happy=False
+for i in normal:
+    if i in others:
+        happy=True
+        break
+if happy == True:
+    print("happy")
+else:
+    print("unhappy")
