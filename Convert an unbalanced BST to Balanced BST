@@ -1,0 +1,40 @@
+# Time Complexity - O(n)
+# Space Complexity - O(n)
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+def inorder(root,arr): 
+	if root is None:
+	    return
+	inorder(root.left,arr) 
+	arr.append(root) 
+	inorder(root.right,arr) 
+def find(arr,start,end):
+    if start > end:
+        return None
+    mid=(start+end)//2
+    node=arr[mid]
+    node.left=find(arr,start,mid-1)
+    node.right=find(arr,mid+1,end)
+    return node
+def final(root):
+    arr=[]
+    inorder(root,arr)
+    n=len(arr)
+    return find(arr,0,n-1)
+def preOrder(root): 
+	if not root: 
+		return
+	print(root.data,end=" ") 
+	preOrder(root.left) 
+	preOrder(root.right)   
+root = Node(10) 
+root.left = Node(8) 
+root.left.left = Node(7) 
+root.left.left.left = Node(6) 
+root.left.left.left.left = Node(5) 
+obj = final(root) 
+preOrder(obj)
