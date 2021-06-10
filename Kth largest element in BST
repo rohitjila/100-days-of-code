@@ -1,0 +1,37 @@
+
+class Solution:
+
+    def kthLargestUtil(self,root, k):
+        global c
+        global res
+        if(root==None or c>=k):
+            return
+        self.kthLargestUtil(root.right, k)
+        c = c+1
+        if(c==k):
+            res = root.data
+            return
+        self.kthLargestUtil(root.left, k)
+    
+    def kthLargest(self,root, k):
+        global c
+        global res
+        c=0
+        res=-1
+        self.kthLargestUtil(root, k)
+        return res
+        
+        
+class Solution:
+    def inorder(self,root,arr):
+        if root is None:
+            return
+        self.inorder(root.left,arr)
+        arr.append(root.data)
+        self.inorder(root.right,arr)
+    def kthLargest(self,root, k):
+        if root is None:
+            return 
+        arr=[]
+        self.inorder(root,arr)
+        return arr[len(arr)-k]
