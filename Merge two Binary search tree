@@ -1,0 +1,80 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+        
+        
+    def insert(self,data):
+        if self.data is None:
+            self.data=data
+            return 
+        if self.data == data:
+            return 
+        
+        if self.data > data:
+            if self.left:
+                self.left.insert(data)
+            else:
+                self.left=Node(data)
+                
+        else:
+            if self.right:
+                self.right.insert(data)
+            else:
+                self.right=Node(data)
+        
+  
+def merge_sort(arr1,arr2):
+    arr=[]
+    i=0
+    j=0
+    while(i < len(arr1) and j < len(arr2)):
+        if (arr1[i] <= arr2[j]):
+            arr.append(arr1[i])
+            i+=1
+        else:
+            arr.append(arr2[j])
+            j+=1
+    while(i < len(arr1)):
+        arr.append(arr1[i])
+        i+=1
+    while(j < len(arr2)):
+        arr.append(arr2[j])
+        j+=1
+    return arr
+        
+def inorder(root,arr=[]):
+    if root:
+        inorder(root.left,arr)
+        arr.append(root.data)
+        inorder(root.right,arr)
+        
+        
+def bst(arr):
+    if not arr:
+        return
+    mid=len(arr)//2
+    root=Node(arr[mid])
+    root.left=bst(arr[:mid])
+    root.right=bst(arr[mid+1:])
+    return root
+        
+root1=Node(None)
+root2=Node(None)
+l1=[100,20,50,70,300]
+for i in l1:
+    root1.insert(i)
+l2=[80,40,120]
+for i in l2:
+    root2.insert(i)
+arr1=[]
+inorder(root1, arr1)
+arr2 = []
+inorder(root2, arr2)
+arr = merge_sort(arr1, arr2)
+root = bst(arr)
+res = []
+inorder(root, res)
+for i in res:
+    print(i, end = ' ')
