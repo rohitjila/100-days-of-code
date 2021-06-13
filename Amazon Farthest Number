@@ -1,0 +1,19 @@
+def farNumber(self,n,arr):
+        suffix_arr=[0]*n
+        suffix_arr[n-1]=arr[n-1]
+        for i in range(n-2,-1,-1):
+            suffix_arr[i]=min(suffix_arr[i+1],arr[i])
+        res=[]
+        for i in range(n):
+            low=i+1
+            high=n-1
+            ans=-1
+            while(low <= high):
+                mid=(low+high)//2
+                if arr[i] > suffix_arr[mid]:
+                    ans=mid
+                    low=mid+1
+                else:
+                    high=mid-1
+            res.append(ans)
+        return res
