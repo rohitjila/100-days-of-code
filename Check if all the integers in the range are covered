@@ -1,0 +1,14 @@
+def array(ranges,left,right):
+    count=0
+    for i in range(left,right+1):
+        for l,r in ranges:
+            if (l <= i <= r):
+                count+=1
+                print(count)
+                break
+    return count == right - left + 1
+    
+ranges=[[50,50]]
+left=1
+right=50
+print(array(ranges,left,right))
