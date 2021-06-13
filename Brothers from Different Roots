@@ -1,0 +1,32 @@
+def solve(root1,arr1):
+    if root1 is None:
+        return
+    solve(root1.left,arr1)
+    arr1.append(root1.data)
+    solve(root1.right,arr1)
+    
+def find(root2,arr2):
+    if root2 is None:
+        return
+    find(root2.left,arr2)
+    arr2.append(root2.data)
+    solve(root2.right,arr2)
+    
+def countPairs(root1, root2, x):
+    arr1=[]
+    arr2=[]
+    solve(root1,arr1)
+    find(root2,arr2)
+    # print(arr1)
+    # print(arr2)
+    count=0
+    for i in range(len(arr1)):
+        if (x - arr1[i] in arr2):
+            count+=1
+        # for j in range(len(arr2)):
+        #     if (arr1[i] + arr2[j] == x):
+        #         count+=1
+    return count
+            
+            
+    
