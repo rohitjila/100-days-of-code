@@ -1,0 +1,18 @@
+class Solution:
+    def solve(self,node,arr,d):
+        if not node:
+            return
+        if (d == len(arr)):
+            arr.append(node.data)
+        else:
+            arr[d] = max(node.data,arr[d])
+        self.solve(node.left,arr,d+1)
+        self.solve(node.right,arr,d+1)
+
+    def maximumValue(self,node):
+        if not node:
+            return 
+        arr=[]
+        self.solve(node,arr,0)
+        return arr
+        
