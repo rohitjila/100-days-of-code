@@ -1,0 +1,49 @@
+# Morris inorder Traversal 
+class BST:
+    def __init__(self,key):
+        self.key=key
+        self.lchild=None
+        self.rchild=None
+    
+    def insert(self,data):
+        if self.key is None:
+            self.key=data
+            return 
+        if self.key == data:
+            return 
+        
+        if self.key > data:
+            if self.lchild:
+                self.lchild.insert(i)
+            else:
+                self.lchild=BST(data)
+                
+        else:
+            if self.rchild:
+                self.rchild.insert(i)
+            else:
+                self.rchild=BST(data)
+                
+def morris(root):
+    current = root
+    while current is not None:
+        if current.lchild is None:
+            print(current.key , end=" ")
+            current = current.rchild
+        else:
+            pre = current.lchild
+            while (pre.rchild is not None
+                  and pre.rchild is not current):
+                pre = pre.rchild
+            if pre.rchild is None:
+                pre.rchild = current
+                current = current.lchild
+            else:
+                pre.right = None
+                print(current.key ,end=" ")
+                current = current.rchild
+root=BST(None)
+l=[6,4,3,5,7]
+for i in l:
+    root.insert(i)
+morris(root)
