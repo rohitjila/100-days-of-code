@@ -1,0 +1,54 @@
+#Time Complexity: O(n):
+#Space Complexity : O(1)
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+        
+        
+    def insert(self,data):
+        if self.data is None:
+            self.data = data
+            return
+        
+        if self.data == data:
+            return
+        
+        if self.data > data:
+            if self.left:
+                self.left.insert(i)
+            else:
+                self.left=Node(data)
+        else:
+            if self.right:
+                self.right.insert(i)
+            else:
+                self.right=Node(data)
+                
+def morris(root):
+    curr=root
+    while(curr != None):
+        if curr.left is None:
+            print(curr.data,end=" ")
+            curr=curr.right
+        else:
+            pre=curr.left
+            while(pre.right != None and pre.right != curr):
+                pre=pre.right
+            if pre.right is None:
+                pre.right=curr
+                curr=curr.left
+            else:
+                pre.right=None
+                print(curr.data,end=" ")
+                curr=curr.right
+            
+root=Node(None)
+l=[5,3,2,1,4]
+for i in l:
+    root.insert(i)
+morris(root)
+            
+    
+            
