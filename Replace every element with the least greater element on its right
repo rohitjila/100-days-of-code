@@ -1,0 +1,37 @@
+# Time Complexity - Worst Case : O(n^2)
+#                   Best  Case : O(logn)
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.left = None
+        self.right = None
+        
+        
+def insert(node,val):
+    global succ
+    if (node == None):
+        return Node(val)
+        
+    if val < node.data:
+        succ=node
+        node.left=insert(node.left,val)
+        
+    else:
+        node.right=insert(node.right,val)
+    return node  
+def greatest(arr,n):
+    global succ
+    root=None
+    for i in range(n-1,-1,-1):
+        succ=None
+        root=insert(root,arr[i])
+        if succ != None:
+            arr[i] = succ.data
+        else:
+            arr[i] = -1
+    return arr
+            
+arr=[15,10,20,30,60,40,25,50]
+n=len(arr)
+a=greatest(arr,n)
+print(*a)
