@@ -1,0 +1,12 @@
+def traverse(root,mn,mx):
+    if root is None:
+        return 
+    if (mx == mn):
+        return True
+        
+    return (traverse(root.left, mn, root.data - 1) or
+            traverse(root.right, root.data + 1, mx))
+    
+    
+def isdeadEnd(root):
+    return traverse(root,1,9999999)
