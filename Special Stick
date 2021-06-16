@@ -1,0 +1,16 @@
+def push(arr, ele):
+    arr.append(ele)
+    
+
+def pop(arr):
+    return arr.pop(0)
+
+def isFull(n, arr):
+    return (n == len(arr))
+
+def isEmpty(arr):
+    return  (arr == [])
+
+
+def getMin(n, arr):
+    return (min(arr))
