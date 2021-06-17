@@ -1,0 +1,31 @@
+class Solution:
+    
+    #Function to evaluate a postfix expression.
+    #t-c -(O|stack|)
+    #s-c -(O|stack|)
+    
+    def EvaluatePostfix(self,A):
+        B=list(A)
+        stack=[]
+        operator=["+","-","*","/",]
+    
+        for item in B:
+            if item not in operator:
+                stack.append(item)
+            else:
+                first=int(stack.pop())
+                sec=int(stack.pop())
+    
+                if(item=="+"):
+                    stack.append(sec + first)
+    
+                if (item == "-"):
+                    stack.append(sec - first)
+    
+                if (item == "*"):
+                    stack.append(sec * first)
+    
+                if (item == "/"):
+                    stack.append(sec / first)
+    
+        return stack[-1]
