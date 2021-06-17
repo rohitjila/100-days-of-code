@@ -1,8 +1,8 @@
 class Solution:
     
     #Function to evaluate a postfix expression.
-    #t-c -(O|stack|)
-    #s-c -(O|stack|)
+    #t-c -(O|A|)
+    #s-c -(O|A|)
     
     def EvaluatePostfix(self,A):
         B=list(A)
