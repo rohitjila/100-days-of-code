@@ -1,0 +1,72 @@
+#Time - complexity - O(n)
+#Space - Complexity - O(n)
+def precedence(op):
+    if op == '+' or op == '-':
+        return 1
+    if op == '*' or op == '/':
+        return 2
+    return 0
+ 
+    
+    
+def applyOp(a,b,op):
+    if op == "+": return a+b
+    if op == "-": return a-b
+    if op == "*": return a*b
+    if op == "/": return a//b
+    
+    
+def evaluate(tokens):
+    operator=[]
+    operand=[]
+    i=0
+    while(i < len(tokens)):
+        if tokens[i] == " ":
+            i+=1
+            continue
+        elif (tokens[i] == "("):
+            operand.append(tokens[i])
+        elif (tokens[i].isdigit()):
+            val=0
+            while(i < len(tokens) and tokens[i].isdigit()):
+                val = (val * 10)+ int(tokens[i])
+                i+=1
+            operator.append(val)
+            i-=1
+            
+        elif (tokens[i] == ")"):
+            while(len(operand) != 0 and operand[-1] != "("):
+                val2 = operator.pop()
+                val1 = operator.pop()
+                op = operand.pop()
+                 
+                operator.append(applyOp(val1, val2, op))
+             
+            operand.pop()
+         
+            
+        else:
+            while(len(operand) != 0 and precedence(operand[-1]) >= precedence(tokens[i])):
+                val2 = operator.pop()
+                val1 = operator.pop()
+                op = operand.pop()
+                 
+                operator.append(applyOp(val1, val2, op))
+             
+            operand.append(tokens[i])
+        i+=1
+        
+    while(len(operand) != 0):
+        val2 = operator.pop()
+        val1 = operator.pop()
+        op = operand.pop()
+        operator.append(applyOp(val1, val2, op))
+             
+    return [operator[-1]]
+print(evaluate("10 + 2 * 6"))
+print(evaluate("100 * 2 + 12"))
+print(evaluate("100 * ( 2 + 12 )"))
+print(evaluate("100 * ( 2 + 12 ) / 14"))
+                
+                
+            
