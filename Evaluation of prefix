@@ -1,0 +1,29 @@
+#t-c = O(|A|)
+#s-c = O(|A|)
+def eval_expression(A):
+    B=list(A)
+    stack=[]
+    operators=["*","-","/","+",]
+    for items in B[::-1]:
+        if items not in operators:
+            stack.append(items)
+            
+        else:
+            first=int(stack.pop())
+            second=int(stack.pop())
+            
+            if (items == "+"):
+                stack.append(first + second)
+                
+            if (items == "-"):
+                stack.append(first - second)
+                
+            if (items == "/"):
+                stack.append(first / second)
+                
+            if (items == "*"):
+                stack.append(first * second)
+    return stack[-1]
+    
+A ="+9*26"
+print(eval_expression(A))
