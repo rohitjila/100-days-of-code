@@ -1,0 +1,40 @@
+#using iterative method
+def insertToBottom(S, N):
+	temp=[]
+	while(len(S) != 0):
+	    temp.append(S[-1])
+	    S.pop()
+	S.append(N)
+	while(len(temp) != 0):
+	    S.append(temp[-1])
+	    temp.pop()
+	while (len(S) != 0):
+		print(S[-1], end = " ")
+		S.pop()
+
+S=list(map(int,input().split()))
+N = 7
+insertToBottom(S, N)
+
+
+#using recursion
+def recur(S,N):
+    if len(S) == 0:
+        S.append(N)
+    else:
+        x=S[len(S)-1]
+        S.pop()
+        S=recur(S,N)
+        S.append(x)
+    return S
+    
+def final(S,N):
+    S=recur(S,N)
+    while(len(S) != 0):
+        print(S[-1],end=" ")
+        S.pop()
+S=list(map(int,input().split()))
+N = 7
+final(S, N)
+        
+
