@@ -1,0 +1,27 @@
+# Time Complexity -O(n^2)
+# Space Complexity - O(n)
+# Sort stack using recursion
+def sortInsert(S,element):
+    if (len(S) == 0 or element > S[-1]):
+        S.append(element)
+        
+    else:
+        temp=S.pop()
+        sortInsert(S,element)
+        S.append(temp)
+def sortStack(S):
+    if (len(S) != 0):
+        temp=S.pop()
+        sortStack(S)
+        sortInsert(S,temp)
+        
+def printStack(S):
+    for i in S[::-1]:
+        print(i,end=" ")
+    
+        
+S=list(map(int,input().split()))
+sortStack(S)
+printStack(S)
+
+        
