@@ -1,0 +1,17 @@
+def recur(S):
+    if len(S) == 0:
+        S.append(" ")
+    else:
+        x=S[len(S)-1]
+        S.pop()
+        S=recur(S)
+        S.append(x)
+    return S
+    
+def convert(S):
+    S=recur(S)
+    while(len(S) != 0):
+        print(S[-1],end=" ")
+        S.pop()
+S=list(map(int,input().split()))
+convert(S)
