@@ -1,0 +1,13 @@
+inclu=0
+    exclu=0
+    for i in range(n):
+        new_exu= (exclu if exclu>inclu else inclu)
+        inclu=exclu + arr[i]
+        exclu=new_exu
+        
+    return (exclu if exclu>inclu else inclu)
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    print(array(arr,n))
