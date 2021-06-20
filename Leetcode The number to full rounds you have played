@@ -1,0 +1,17 @@
+class Solution:
+    def numberOfRounds(self, startTime: str, finishTime: str) -> int:
+        def calculate(time):
+            t=[0,0]
+            t[0],t[1]=map(int,time.split(":"))
+            t=60*t[0]+t[1]
+            return t
+        
+            
+        s=calculate(startTime)
+        t=calculate(finishTime)
+        
+        if s < t:
+            return int(floor(t/15) - ceil(s/15))
+        
+        else:
+            return int(floor(t/15) + calculate("24:00")/15 - ceil(s/15))
