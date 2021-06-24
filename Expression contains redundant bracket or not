@@ -1,0 +1,20 @@
+def reduntant(s):
+    stack=[]
+    for ch in s:
+        if (ch == ")"):
+            top=stack[-1]
+            stack.pop()
+            flag = True
+            while(top != "("):
+                if (top == "+" or top == "-" or top == "/" or top == "*"):
+                    flag=False
+                top=stack[-1]
+                stack.pop()
+            if (flag == True):
+                return True
+        else:
+            stack.append(ch)
+    return False
+    
+s="(a+b*(c-d))"
+print(reduntant(s))
