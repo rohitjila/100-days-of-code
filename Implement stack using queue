@@ -1,0 +1,29 @@
+q=[]
+def append(x):
+    n=len(q)
+    q.append(x)
+    for i in range(n):
+        ans=q.pop(0)
+        q.append(ans)
+    
+def pop():
+    if len(q) == 0:
+        return -1
+    else:
+        return (q.pop(0))
+        
+def top():
+    if (len(q) == 0):
+        return -1
+    else:
+        return (q[-1])
+        
+def empty():
+    return(len(q) == 0)
+    
+append(10)
+append(20)
+print(pop())
+print(top())
+pop()
+print(empty())
