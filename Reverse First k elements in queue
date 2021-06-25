@@ -1,0 +1,16 @@
+def reverse(stack):
+    if (len(stack) == 0):
+        return
+    s=stack.pop(0)
+    reverse(stack)
+    stack.append(s)
+    return stack
+    
+def modifyQueue(q,k):
+    stack=[]
+    for i in range(k):
+        stack.append(q[i])
+    ans=reverse(stack)
+    for i in range(k,len(q)):
+        ans.append(q[i])
+    return ans
