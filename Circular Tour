@@ -1,0 +1,17 @@
+class Solution:
+    
+    #Function to find starting point where the truck can start to get through
+    #the complete circle without exhausting its petrol in between.
+    def tour(self,lis, n):
+        start=0
+        fueltank=0
+        fuelshortage=0
+        for i in range(n):
+            fueltank+=lis[i][0] - lis[i][1]
+            if (fueltank < 0):
+                start=i+1
+                fuelshortage+=fueltank
+                fueltank=0
+        if (fueltank + fuelshortage) >= 0:
+            return start
+        return -1
