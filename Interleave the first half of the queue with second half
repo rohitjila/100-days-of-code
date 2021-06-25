@@ -1,0 +1,30 @@
+#Time complexity : O(n)
+#space complexity : O(n)
+def inter(q):
+    n=len(q)
+    stack=[]
+    for i in range(n//2):
+        stack.append(q[0])
+        s=q.pop(0)
+    while(len(stack) != 0):
+        q.append(stack[-1])
+        stack.pop()
+        
+    for i in range(n//2):
+        q.append(q[0])
+        q.pop(0)
+    
+    for i in range(n//2):
+        stack.append(q[0])
+        q.pop(0)
+    
+    while(len(stack) != 0):
+        q.append(stack[-1])
+        stack.pop()
+        q.append(q[0])
+        q.pop(0)
+    print(q)
+    
+q=[1,2,3,4]
+inter(q)
+        
