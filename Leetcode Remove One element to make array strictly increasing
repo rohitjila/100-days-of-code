@@ -1,0 +1,19 @@
+class Solution:
+    def canBeIncreasing(self, arr: List[int]) -> bool:
+        count=0
+        index=-1
+        n=len(arr)
+        for i in range(n-1):
+            if (arr[i] >= arr[i+1]):
+                count+=1
+                index=i
+        if count == 0:
+            return True
+        
+        if count == 1:
+            if (index == 0 or index == n-2):
+                return True
+            
+            if (arr[index-1] < arr[index+1]) or (index+2 < n and arr[index] < arr[index+2]):
+                return True
+        return False
