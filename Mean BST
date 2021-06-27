@@ -1,0 +1,16 @@
+class Solution():
+    def mean(self, root, key):
+        ceil = -1
+        floor = -1
+        while root:
+            if root.data == key:
+                floor = root.data
+                ceil = root.data
+                break
+            if (key > root.data):
+                floor = root.data
+                root = root.right
+            else:
+                ceil = root.data
+                root = root.left
+        return (floor+ceil + 1) // 2
