@@ -1,0 +1,17 @@
+class Solution:
+	def prevSmaller(self, A):
+        n=len(A)
+        stack=[]
+        res=[0]*n
+        for i in range(n):
+            while(len(stack) and stack[-1] >= A[i]):
+                stack.pop()
+
+            if not stack:
+                res[i]=-1
+
+            else:
+                res[i]=stack[-1]
+
+            stack.append(A[i])
+        return res
