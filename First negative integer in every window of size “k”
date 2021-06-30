@@ -1,0 +1,77 @@
+#Brute Force Method 
+# T.c=O(n^2)
+def array(arr,n,k):
+    for i in range(0,n-k+1):
+        flag=False
+        for j in range(0,k):
+            if (arr[i+j] < 0):
+                print(arr[i+j] ,end=" ")
+                flag=True
+                break
+            
+        if (flag == False):
+            print(0,end=" ")
+            
+arr=[-8,2,3,-6,10]
+n=len(arr)
+k=2
+array(arr,n,k)
+
+
+
+#Brute Better 
+# T.C=O(n)
+
+from collections import deque
+def printFirstNegativeInteger(arr, n, k):
+    d=deque()
+    i,j=0,0
+    res=[]
+    while(j < n):
+        if (arr[j] < 0):
+            d.append([arr[j],j])
+        if j-i+1 == k:
+            while (d) and d[0][1] < i:
+                d.popleft()
+            top=d[0][0] if len(d) else 0
+            res.append(top)
+            i+=1
+        else:
+            j+=1
+    return res
+arr=[-8,2,3,-6,10]
+n=len(arr)
+k=2
+print(printFirstNegativeInteger(arr,n,k))
+
+
+#third method same technique as code 2 technique
+from collections import deque
+def printFirstNegativeInteger(arr, n, k):
+    d=deque()
+    res=[]
+    for i in range(k):
+        if (arr[i] < 0):
+            d.append(i)
+            
+    for i in range(k,n):
+        if not d:
+            res.append(0)
+        else:
+            res.append(arr[d[0]])
+            
+        while d and d[0] <= i-k:
+            d.popleft()
+            
+        if (arr[i] < 0):
+            d.append(i)
+            
+    if not d:
+        res.append(0)
+    else:
+        res.append(arr[d[0]])
+    return res
+
+
+
+                
