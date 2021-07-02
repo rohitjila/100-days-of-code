@@ -1,0 +1,13 @@
+#min heap
+import heapq
+l=[1,7,9,8,6]
+heapq.heapify(l)
+print(list(l))
+heapq.heappush(l,4)
+print(list(l))
+heapq.heappop(l)
+print(l)
+
+li1 = [6, 7, 9, 4, 3, 5, 8, 10, 1]
+print(heapq.nlargest(3,li1))
+print(heapq.nsmallest(3,li1))
