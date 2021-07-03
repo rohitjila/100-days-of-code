@@ -1,0 +1,52 @@
+def increase_key(arr,i,key):
+    if key < arr[i]:
+        print("key should be greater")
+    arr[i]=key
+    while i>=0 and arr[int((i-1)/2)] < arr[i]:
+        arr[i],arr[int((i-1)/2)] = arr[int((i-1)/2)],arr[i]
+        i = int((i-1)/2)
+    print(arr)
+    
+    
+def insert_key(arr,key):
+    arr.append(key)
+    size=len(arr)
+    i=size-1
+    while i>=0 and arr[int((i-1)/2)] < arr[i]:
+        arr[i],arr[int((i-1)/2)] = arr[int((i-1)/2)],arr[i]
+        i = int((i-1)/2)
+    print(arr)  
+    
+    
+def delete(A):
+    size=len(A)
+    if size < 1:
+        print("Error")
+    max_root=A[0]
+    A[0]=A[size-1]
+    size=size-1
+    A=build_heap(A[0:size],0)
+    print(A)
+    return max_root
+
+def build_heap(A,i):
+    l=2*i+1
+    r=2*i+2
+    if l < len(A) and A[l] > A[i]:
+        largest=l
+    else:
+        largest=i
+        
+    if r < len(A) and A[r] > A[largest]:
+        largest=r
+        
+    if (largest) != i:
+        A[i],A[largest] = A[largest],A[i]
+        build_heap(A,largest)
+    return A
+        
+A=[48,35,42,15,7,18,24]
+n=len(A)
+# increase_key(A,4,49)
+# insert_key(A,70)
+print(delete(A))
