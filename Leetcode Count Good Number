@@ -1,0 +1,16 @@
+class Solution:
+    def countGoodNumbers(self, n: int) -> int:
+        mod = 10 ** 9 + 7
+        # return pow(5, (n + 1) // 2, mod) * pow(4, n // 2, mod) % mod
+        ans=1
+        rem=n%2
+        n-=rem
+        ans=pow(20,n//2,mod)
+        if rem == 1:
+            ans*=5
+        return ans % mod
+# if n = 4 then = 5*4*5*4 = 20 ^ (n // 2)
+# but if n = 7 then we have to add one extra 5
+# = 20 ^ (n // 2) * 5
+        
+        
