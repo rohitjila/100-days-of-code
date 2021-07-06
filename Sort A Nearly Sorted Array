@@ -1,0 +1,40 @@
+# Time Complexity - O(nlogk)
+# Space Complexity - O(n)
+from heapq import heapify,heappop,heappush
+def array(arr,n,k):
+    arr1=[]
+    min_heap=[]
+    for i in range(n):
+        heappush(min_heap,arr[i])
+        if (len(min_heap) > k):
+            arr1.append(heappop(min_heap))
+    for i in range(len(min_heap)):
+        arr1.append(heappop(min_heap))
+    return arr1
+t=int(input())
+for i in range(t):
+    n,k=map(int,input().split())
+    arr=list(map(int,input().split()))
+    print(array(arr,n,k))
+
+# Time Complexity - O((n-k)*logk)
+# Space Complexity - O(k)
+from heapq import heapify,heappush , heappop
+def array(arr,n,k):
+    heap=arr[:k+1]
+    heapify(heap)
+    target_index=0
+    for i in range(k+1,n):
+        arr[target_index]=heappop(heap)
+        heappush(heap,arr[i])
+        target_index+=1
+           
+    while(heap):
+        arr[target_index]=heappop(heap)
+        target_index+=1
+    for i in range(n):
+        print(arr[i],end=" ")
+k = 3
+arr = [2, 6, 3, 12, 56, 8]
+n = len(arr)
+array(arr, n, k)
