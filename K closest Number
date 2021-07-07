@@ -1,0 +1,17 @@
+# Time Complexity - O(nlogk)
+# Space Complexity - O(k)
+from heapq import heappop,heappush,heapify
+def array(arr,n,x,k):
+    max_heap=[]
+    heapify(max_heap)
+    for i in range(n):
+        heappush(max_heap,(-abs(arr[i]-x),arr[i]))
+        if (len(max_heap) > k):
+            heappop(max_heap)
+    for i in range(len(max_heap)):
+        print(max_heap[i][1],end=" ")
+arr=[-10,-50,20,17,80]
+n=len(arr)
+x=20
+k=2
+array(arr,n,x,k)
