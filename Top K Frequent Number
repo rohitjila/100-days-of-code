@@ -1,0 +1,18 @@
+from collections import defaultdict
+from heapq import heapify,heappop,heappush
+class Solution:
+	def topK(self, arr, k):
+	    res=[]
+	    hash_map=defaultdict(lambda:0)
+        for i in range(n):
+            hash_map[arr[i]]+=1
+        min_heap=[]
+        heapify(min_heap)
+        for key,v in hash_map.items():
+            heappush(min_heap,(v,key))
+            if (len(min_heap) > k):
+                heappop(min_heap)
+        min_heap.sort()
+        for i in range(len(min_heap)-1,-1,-1):
+            res.append(min_heap[i][1])
+        return res
