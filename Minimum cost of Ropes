@@ -1,0 +1,15 @@
+from heapq import heapify , heappop , heappush
+class Solution:
+    def minCost(self,arr,n):
+        min_heap=[]
+        for i in range(n):
+            heappush(min_heap,arr[i])
+        Sum=0
+        while(len(min_heap) >= 2):
+            a=heappop(min_heap)
+            b=heappop(min_heap)
+            res=a+b
+            Sum+=(a+b)
+            heappush(min_heap,res)
+        return Sum
+        
