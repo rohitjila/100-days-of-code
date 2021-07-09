@@ -1,0 +1,21 @@
+from heapq import heapify, heappop , heappush
+def array(arr,n,k):
+    max_heap=[]
+    for i in range(n):
+        heappush(max_heap,-1*arr[i])
+        if (len(max_heap) > k):
+            heappop(max_heap)
+    return max_heap[0]*-1
+def solve(arr,n,k1,k2):
+    first=array(arr,n,k1)
+    second=array(arr,n,k2)
+    Sum=0
+    for i in range(n):
+        if (first < arr[i] < second):
+            Sum+=arr[i]
+    return Sum
+arr=[10, 2, 50, 12, 48, 13]
+n=len(arr)
+k1=2
+k2=6
+print(solve(arr,n,k1,k2))
