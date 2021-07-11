@@ -1,0 +1,14 @@
+def toString(l):
+    return("".join(l))
+def string(s,left,right):
+    if (left == right):
+        print(toString(s))
+    else:
+        for i in range(left,right+1):
+            s[left],s[i]=s[i],s[left]
+            string(s,left+1,right)
+            s[left],s[i]=s[i],s[left]
+strings=input()
+n=len(strings)
+s=list(strings)
+string(s,0,n-1)
