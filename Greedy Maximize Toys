@@ -1,0 +1,12 @@
+class Solution:
+    def toyCount(self, N, K, arr):
+        count=0
+        Sum=0
+        arr.sort()
+        for i in range(N):
+            Sum+=arr[i]
+            if (Sum > K):
+                break
+            else:
+                count+=1
+        return count
