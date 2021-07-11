@@ -1,0 +1,45 @@
+class Solution:
+    #Function to return the largest possible number of n digits
+    #with sum equal to given sum.
+    def largestNum(self,n,s):
+        if(s > 9*n):
+            return (-1)
+            
+            
+        if (s == 0 or n == 1):
+            return s
+        else:
+            res=[0]*n
+            for i in range(n):
+                if s >= 9:
+                    res[i]=9
+                    s=s-9
+                else:
+                    res[i]=s
+                    s=0
+        ans = [str(a) for a in res]
+        return ("" . join(ans))
+        
+        class Solution:
+    #Function to return the largest possible number of n digits
+    #with sum equal to given sum.
+    def largestNum(self,n,s):
+        if(s > 9*n):
+            return (-1)
+            
+            
+        if (s == 0 or n == 1):
+            return s
+       
+        else:
+            nines=s//9
+            s%=9
+            ans='9'*nines
+            
+            if (len(ans) < n):
+                ans+=str(s)
+                for i in range(n-nines-1):
+                    ans+='0'
+            return ans
+            
+        
