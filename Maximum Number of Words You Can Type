@@ -1,0 +1,10 @@
+class Solution:
+    def canBeTypedWords(self, s: str, b: str) -> int:
+        count=0
+        s=s.split()
+        for i in range(len(s)):
+            for j in range(len(s[i])):
+                if (s[i][j] in b):
+                    count+=1
+                    break
+        return (len(s) - count)
