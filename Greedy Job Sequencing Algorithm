@@ -1,0 +1,54 @@
+class Solution:
+    
+    #Function to find the maximum profit and the number of jobs done.
+    def JobScheduling(self,Jobs,n):
+        Jobs.sort(key=lambda x : x.profit ,reverse = True)
+        res,count=0,0
+        result=[False]*n
+        slots=[-1]*n
+        for i in range(n):
+            for j in range(min(n,Jobs[i].deadline)-1 ,-1,-1):
+                if (result[j] is False):
+                    result[j] = True
+                    slots[j] = Jobs[i].profit
+                    break
+        res=[]
+        ans=0
+        count=0
+        for i in range(len(slots)):
+            if (slots[i] != -1):
+                ans+=slots[i]
+                count+=1
+        res.append(count)
+        res.append(ans)
+        return res
+        
+        
+        def printJobScheduling(arr,n):
+    arr.sort(key=lambda x : x[2],reverse= True)
+    result=[False]*n
+    slots=[-1]*n
+    for i in range(len(arr)):
+        for j in range(min(n,arr[i][1]-1),-1,-1):
+            if (result[j] is False):
+                result[j]=True
+                slots[j]=arr[i][2]
+                break
+    ans=0 
+    count=0
+    for i in range(len(slots)):
+        if (slots[i] != -1):
+            ans+=slots[i]
+            count+=1
+    return(ans,count)
+        
+    return slots
+arr = [['a', 2, 100], 
+       ['b', 1, 19],
+       ['c', 2, 27],
+       ['d', 1, 25],
+       ['e', 3, 15]]
+ 
+
+n=len(arr)
+print(printJobScheduling(arr, n))
