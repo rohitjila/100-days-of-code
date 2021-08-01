@@ -1,0 +1,30 @@
+def find(arr,n,x):
+    res=[]
+    low=0
+    high=n-1
+    res1=-1
+    while(low <= high):
+        mid=low+(high-low)//2
+        if (x == arr[mid]):
+            res1=mid
+            high=mid-1
+        elif(arr[mid]> x):
+            high=mid-1
+        else:
+            low=mid+1
+    res.append(res1)
+    low=0
+    high=n-1
+    res2=-1
+    while(low <= high):
+        mid=low+(high-low)//2
+        if (x == arr[mid]):
+            res2=mid
+            low=low+1
+        elif(arr[mid] > x):
+            high=mid-1
+        else:
+            low=mid+1
+    res.append(res2)
+    return res
+            
