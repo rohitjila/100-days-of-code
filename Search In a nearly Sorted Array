@@ -1,0 +1,20 @@
+def array(arr,n,target):
+    low=0
+    high=n-1
+    while(low <= high):
+        mid=low+(high-low)//2
+        if (arr[mid] == target):
+            return mid
+        if(mid-1 >= low and arr[mid-1] == target):
+            return mid-1
+        if(mid+1 <= high and arr[mid+1] == target):
+            return mid+1
+        elif(arr[mid] > target):
+            high=mid-2
+        else:
+            low=mid+2
+    return -1
+arr=[5,10,30,20,40]
+n=len(arr)
+target=10
+print(array(arr,n,target))
