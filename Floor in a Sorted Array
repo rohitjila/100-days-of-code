@@ -1,0 +1,16 @@
+class Solution:
+    #User function Template for python3
+    
+    #Complete this function
+    def findFloor(self,arr,N,X):
+        low=0
+        high=N-1
+        res=-1
+        while(low <= high):
+            mid=low+(high-low)//2
+            if (arr[mid] <= X):
+                res=mid
+                low=mid+1
+            elif (arr[mid] > X):
+                high=mid-1
+        return res
