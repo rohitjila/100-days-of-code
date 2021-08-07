@@ -1,0 +1,20 @@
+def array(arr,n,k):
+    arr1=[]
+    for i in range(n):
+        arr1.append((arr[i],i+1))
+    arr1.sort()
+    ans=0
+    for i in range(n):
+        price=arr1[i][0]
+        stock=arr1[i][1]
+        if (price * stock <= k):
+            ans+=stock
+            k-=(price*stock)
+        else:
+            ans+=(k//price)
+            k-=price*(k//price)
+    return ans
+arr=[10,7,19]
+n=len(arr)
+k=45
+print(array(arr,n,k))
