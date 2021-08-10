@@ -1,0 +1,21 @@
+def ceil(arr,n,target):
+    low=0
+    high=n-1
+    res=0
+    while(low <= high):
+        mid=low+(high-low)//2
+        if (arr[mid] == target):
+            return arr[mid]
+            
+        elif(arr[mid] < target):
+            low=mid+1
+            
+        else:
+            res=arr[mid]
+            high=mid-1
+    return res
+            
+arr=[1,2,3,4,8,10,10,12,19]
+n=len(arr)
+target=5
+print(ceil(arr,n,target))
