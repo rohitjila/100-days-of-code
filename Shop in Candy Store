@@ -1,0 +1,24 @@
+#User function Template for python3
+
+class Solution:
+
+    def candyStore(self, candies,N,k):
+        ma=0
+        mi=0
+        candies.sort()
+        i=0
+        j=N-1
+        while(i <= j):
+            mi+=candies[i]
+            i+=1
+            j=j-k
+            
+        i=0
+        j=N-1
+        candies.sort(reverse=True)
+        while( i <= j):
+            ma+=candies[i]
+            i+=1
+            j=j-k
+            
+        return(mi,ma)
