@@ -1,0 +1,19 @@
+def survive(n,m,s):
+    x=s//7
+    y=s-x
+    res=m*s
+    if (res % n == 0):
+        output=res//n
+        if (output <= s):
+            print("Yes" , output)
+        else:
+            print("No")
+    else:
+        output=(res//n)+1
+        if (output <= s):
+            print("Yes" , output)
+        else:
+            print("No")
+            
+n,m,s=map(int,input().split())
+survive(n,m,s)
