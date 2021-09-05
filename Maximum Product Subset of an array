@@ -1,0 +1,29 @@
+def MaximumProduct(arr,n):
+    zc=0
+    nc=0
+    prod=1
+    max_negative=-9999999
+    for i in range(n):
+        if (arr[i] == 0):
+            zc+=1
+            continue
+        elif(arr[i] < 0):
+            nc+=1
+            max_negative=max(max_negative,arr[i])
+            
+        prod=prod*arr[i]
+        
+    if (zc == n):
+        return 0
+        
+    elif(zc+nc == n and nc == 1):
+        return 0
+        
+    elif(nc % 2 != 0):
+        prod = prod//max_negative
+        
+    return prod
+    
+arr=[-1,-1,-2,4,3]
+n=len(arr)
+print(MaximumProduct(arr,n))
