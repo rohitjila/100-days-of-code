@@ -1,0 +1,18 @@
+def countpairs(arr,n,k):
+    hash_map={}
+    count=0
+    for i in range(n):
+        if (k - arr[i] in hash_map):
+            count+=(hash_map[k-arr[i]])
+        
+        if (arr[i] in hash_map):
+            hash_map[arr[i]]+=1
+        
+        else:
+            hash_map[arr[i]]=1
+    return count
+        
+arr=[1,5,7,-1,5]
+n=len(arr)
+k=6
+print(countpairs(arr,n,k))
