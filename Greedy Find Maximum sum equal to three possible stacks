@@ -1,0 +1,28 @@
+n1,n2,n3=map(int,input().split())
+arr1=list(map(int,input().split()))
+arr2=list(map(int,input().split()))
+arr3=list(map(int,input().split()))
+s1=sum(arr1)
+s2=sum(arr2)
+s3=sum(arr3)
+ans=0
+top1,top2,top3=0,0,0
+while(True):
+    if (top1 == n1 or top2 == n2 or top3 == n3):
+        ans=0
+        break
+    if (s1 == s2 and s2 == s3):
+        ans=s1
+        break
+    if (s1 >= s2 and s1 >= s3):
+        s1-=arr1[top1]
+        top1+=1
+        
+    if (s2 >= s1 and s2 >= s3):
+        s2-=arr2[top2]
+        top2+=1
+        
+    if (s3 >= s2 and s3 >= s1):
+        s3-=arr3[top1]
+        top3+=1
+print(ans)
