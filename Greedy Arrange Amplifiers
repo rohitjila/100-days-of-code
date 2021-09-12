@@ -1,0 +1,19 @@
+def array(arr,n):
+    arr.sort(reverse = True)
+    ones=0
+    for i in range(n):
+        if (arr[i] == 1):
+            ones+=1
+            
+    for i in range(ones):
+        print(1,end=" ")
+    if (n - ones == 2 and arr[1] == 2 and arr[0] == 3):
+        print(2,3,end=" ")
+    else:
+        for i in range(n-ones):
+            print(arr[i],end=" ")
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    array(arr,n)
