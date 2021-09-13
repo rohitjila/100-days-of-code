@@ -1,0 +1,36 @@
+t=int(input())
+for i in range(t):
+    m,n=map(int,input().split())
+    m-=1
+    n-=1
+    x=[]
+    y=[]
+    for i in range(m):
+        x.append(int(input()))
+    for i in range(n):
+        y.append(int(input()))
+    x.sort(reverse=True)
+    y.sort(reverse=True)
+    
+    hc=1
+    vc=1
+    ans=0
+    i,j=0,0
+    while(i < m and j < n):
+        if (x[i] > y[j]):
+            ans+=(x[i] * vc)
+            hc+=1
+            i+=1
+        else:
+            ans+=(y[j] * hc)
+            vc+=1
+            j+=1
+            
+    while(i < m):
+        ans+=(x[i] * vc)
+        i+=1
+        
+    while(j < n):
+        ans+=(y[j] * hc)
+        j+=1
+    print(ans)
