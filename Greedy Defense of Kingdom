@@ -1,0 +1,22 @@
+t=int(input())
+for i in range(t):
+    w,h,to=map(int,input().split())
+    a=[]
+    b=[]
+    a.append(0)
+    b.append(0)
+    for i in range(to):
+        x,y=map(int,input().split())
+        a.append(x)
+        b.append(y)
+    a.append(w+1)
+    b.append(h+1)
+    a.sort()
+    b.sort()
+    ma1=0
+    ma2=0
+    for i in range(1,len(a)):
+        ma1=max(ma1,((a[i]-a[i-1])-1))
+    for i in range(1,len(b)):
+        ma2=max(ma2,((b[i]-b[i-1])-1))
+    print(ma1*ma2)
