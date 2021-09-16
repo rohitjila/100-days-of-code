@@ -1,0 +1,28 @@
+class Solution:
+    
+    def isVaild(self,arr,n,k,mx):
+        student=1
+        Sum=0
+        for i in range(n):
+            Sum+=arr[i]
+            if (Sum > mx):
+                student+=1
+                Sum=arr[i]
+            if(student > k):
+                return False
+        return True
+    def findPages(self,arr, n, k):
+        if (k > len(arr)):
+            return -1
+        else:
+            low=max(arr)
+            high=sum(arr)
+            res=-1
+            while(low <= high):
+                mid=low+(high-low)//2
+                if (self.isVaild(arr,n,k,mid)):
+                    res=mid
+                    high=mid-1
+                else:
+                    low=mid+1
+            return res
