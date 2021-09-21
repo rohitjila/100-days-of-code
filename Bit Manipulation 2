@@ -1,0 +1,31 @@
+def array(arr,n):
+    for nums in range(0,(1 << n)):
+        ls=[]
+        for bit in range(0,n):
+            if (nums & (1 << bit)):
+                ls.append(arr[bit])
+        for i in range(len(ls)):
+            print(ls[i],end=" ")
+arr=[3,2,4]
+n=len(arr)
+array(arr,n)
+
+n=int(input())
+arr=[]
+flag=0
+for i in range(n):
+    arr.append(int(input()))
+for nums in range(0,(1<<n)):
+    Sum=0
+    for bits in range(0,n):
+        if (nums & (1 << bits)):
+            Sum+=arr[bits]
+        else:
+            Sum-=arr[bits]
+    if (Sum % 360 == 0):
+        flag=1
+        break
+if (flag == 1):
+    print("YES")
+else:
+    print("NO")
