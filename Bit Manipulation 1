@@ -1,0 +1,28 @@
+# Question 1
+# All numbers are having duplicates number but 2 numbers are unique .
+# How to find that two numbers.
+
+def TwoUnique(arr,n):
+    XOR=0
+    for i in range(n):
+        XOR=XOR^arr[i]
+        
+    count=0
+    while(XOR):
+        if (XOR & 1):
+            break
+        count+=1
+        XOR=XOR >> 1
+        
+    Xor1=0
+    Xor2=0
+    for i in range(n):
+        if ((arr[i] & (1 << count))):
+            Xor1=Xor1 ^ arr[i]
+        else:
+            Xor2=Xor2 ^ arr[i]
+    return(Xor1,Xor2)
+            
+arr=[2,1,2,5,1,4,4,3,3,7]
+n=len(arr)
+print(TwoUnique(arr,n))
