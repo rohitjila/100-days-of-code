@@ -1,0 +1,46 @@
+from math import pow
+def largestpower(n):
+    x=0;
+    while((1<<x)<=n):
+        x+=1;
+    return x-1;
+       
+def countSetBits(n):
+    if(n==0):
+        return 0;
+    x=largestpower(n);
+    bitstill2x=x*(pow(2,x-1));
+    msb2xton=n-(pow(2,x))+1;
+    rest=n-(pow(2,x));
+    ans=bitstill2x+msb2xton+countSetBits(rest);
+    return int(ans);
+    
+n=int(input())
+print(countSetBits(n))
+
+
+class Solution{
+    public:
+    // n: input to count the number of set bits
+    //Function to return sum of count of set bits in the integers from 1 to n.int largestpower(int n)
+    int largestpower(int n)
+   {
+       int x=0;
+       while((1<<x)<=n)
+       x++;
+       return x-1;
+   }
+
+    
+    int countSetBits(int n)
+   {   
+       if(n==0)
+       return 0;
+       int x=largestpower(n);
+       int bitstill2x=x*(1<<(x-1));
+       int msb2xton=n-(1<<x)+1;
+       int rest=n-(1<<x);
+       int ans=bitstill2x+msb2xton+countSetBits(rest);
+       return ans;
+   }
+};
