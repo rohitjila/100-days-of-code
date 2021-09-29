@@ -1,0 +1,21 @@
+def quotient(n,m):
+    if (n < 0 or m < 0):
+        sign=-1
+    else:
+        sign=1
+    n=abs(n)
+    m=abs(m)
+    q=0
+    t=0
+    for i in range(31,-1,-1):
+        if (t + (m << i) <= n):
+            t=t+(m << i)
+            q=q|(1 << i)
+            
+    if (sign == -1):
+        q = -q
+    return q
+    
+n=10
+m=3
+print(quotient(n,m))
