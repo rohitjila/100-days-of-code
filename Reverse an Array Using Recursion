@@ -1,0 +1,11 @@
+def array(i,arr):
+    n=len(arr)
+    if (i >= n//2):
+        return 
+    else:
+        arr[i],arr[n-i-1]=arr[n-i-1],arr[i]
+        array(i+1,arr)
+        
+arr=[1,2,3,4,5]
+array(0,arr)
+print(arr)
