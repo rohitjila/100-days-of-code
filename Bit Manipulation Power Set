@@ -1,0 +1,28 @@
+vector<string>res;
+			int n = s.size();
+			for(int i = 0; i < (1 << n); i++){
+				string temp ="";
+				for(int j = 0; j < n; j++){
+					if(i & (1 << j))
+						temp += s[j];
+				}
+				if(temp.size())
+				res.push_back(temp);
+			}
+			sort(res.begin(), res.end());
+			return res;
+		}
+    
+    
+ def AllPossible(s):
+    arr=[]
+    n=len(s)
+    for nums in range(1,(1 << n)):
+        sub=""
+        for j in range(0,n):
+            if (nums & (1 << j)):
+                sub+=s[j]
+        arr.append(sub)
+    return arr
+s="abc"
+print(AllPossible(s))
