@@ -1,0 +1,19 @@
+def func1():
+    store=func(0,arr,0,n,3)
+    return store-1
+    
+def func(ind,arr,Sum,n,k):
+    if (ind == n):
+        if (Sum % k == 0):
+            return 1 
+        else:
+            return 0
+    Sum+=arr[ind]
+    l=func(ind+1,arr,Sum,n,k)
+    Sum-=arr[ind]
+    r=func(ind+1,arr,Sum,n,k)
+    return(l+r)
+    
+arr=[3,6]
+n=len(arr)
+print(func1())
