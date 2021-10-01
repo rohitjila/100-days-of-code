@@ -1,0 +1,13 @@
+def array(i,string):
+    n=len(string)
+    if (i >= n/2):
+        return True
+    else:
+        if (string[i] == string[n-i-1]):
+            return array(i+1,string)
+    return False
+string="MadaM"
+if (array(0,string)):
+    print("Yes")
+else:
+    print("No")
