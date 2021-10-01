@@ -1,0 +1,14 @@
+def func(ind,arr,lst,n):
+    if (ind == n):
+        for i in range(len(lst)):
+            print(lst[i],end=" ")
+        print()
+        return
+    lst.append(arr[ind])
+    func(ind+1,arr,lst,n)
+    lst.pop()
+    func(ind+1,arr,lst,n)
+    
+arr=["a","b","c"]
+n=len(arr)
+func(0,arr,[],n)
