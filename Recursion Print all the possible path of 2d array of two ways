@@ -1,0 +1,19 @@
+def matrix(i,j,mat,s,n,m):
+    if (i >= n or j >= m):
+        return 
+    if (i == n-1 and j == m-1):
+        print(s)
+        return
+    s+="D"
+    matrix(i+1,j,mat,s,n,m)
+    s=s[:-1]
+    s+="R"
+    matrix(i,j+1,mat,s,n,m)
+    s=s[:-1]
+    
+mat=[[0,0],
+[0,0],
+[0,0]]
+n=len(mat)
+m=len(mat[0])
+matrix(0,0,mat,"",n,m)
