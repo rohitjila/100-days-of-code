@@ -1,0 +1,18 @@
+def array(ind,arr,Sum,n):
+    if (ind == n):
+        if (Sum == 0):
+            return 1
+        else:
+            return 0
+    l=0
+    r=0
+    if (arr[ind] <= Sum):
+        Sum-=arr[ind]
+        l=array(ind,arr,Sum,n)
+        Sum+=arr[ind]
+    r=array(ind+1,arr,Sum,n)
+    return(l+r)
+    
+arr=[1,2,3]
+n=len(arr)
+print(array(0,arr,4,n))
