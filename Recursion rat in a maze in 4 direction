@@ -1,0 +1,40 @@
+dire = "DRUL"
+di=[1,0,-1,0]
+dj=[0,1,0,-1]
+def matrix(i,j,mat,s,n,m,vis):
+    if (i >= n or j >= m or i < 0 or j < 0 or vis[i][j] == 1):
+        return 
+    if (i == n-1 and j == m-1):
+        print(s)
+        return
+    
+    vis[i][j] = 1
+    for x in range(0,4):
+        s+=dire[x]
+        matrix(i+di[x],j+dj[x],mat,s,n,m,vis)
+        s=s[:-1]
+    vis[i][j] = 0
+    # vis[i][j]= 1
+    # s+="D"
+    # matrix(i+1,j,mat,s,n,m,vis)
+    # s=s[:-1]
+    # s+="R"
+    # matrix(i,j+1,mat,s,n,m,vis)
+    # s=s[:-1]
+    # s+="U"
+    # matrix(i-1,j,mat,s,n,m,vis)
+    # s=s[:-1]
+    # s+="L"
+    # matrix(i,j-1,mat,s,n,m,vis)
+    # s=s[:-1]
+    # vis[i][j]=0
+    
+    
+    
+mat=[[0,0],
+[0,0],
+[0,0]]
+n=len(mat)
+m=len(mat[0])
+vis=[[False]*m]*n
+matrix(0,0,mat,"",n,m,vis)
