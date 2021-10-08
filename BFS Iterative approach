@@ -1,0 +1,52 @@
+def add_node(v):
+    if v in graph:
+        print("It os Already present")
+    else:
+        graph[v]=[]
+        
+        
+def add_edge(v1,v2):
+    if v1 not in graph:
+        print("v1 is already present")
+    elif v2 not in graph:
+        print("v2 is already present")
+    else:
+        graph[v1].append(v2)
+        graph[v2].append(v1)
+
+
+def BFS(node,graph):
+    visited=set()
+    if node not in graph:
+        print("Node is not present in graph")
+        return
+    queue=[]
+    queue.append(node)
+    arr=[]
+    while(queue):
+        current=queue.pop(0)
+        if current not in visited:
+            arr.append(current)
+            visited.add(current)
+            for i in graph[current]:
+                if i not in visited:
+                    queue.append(i)
+    return arr
+                    
+        
+        
+graph={}
+add_node(0)
+add_node(1)
+add_node(2)
+add_node(3)
+add_node(4)
+add_node(5)
+
+add_edge(0,3)
+add_edge(1,2)
+add_edge(2,3)
+add_edge(4,3)
+add_edge(4,5)
+print(graph)
+print(BFS(0,graph))
