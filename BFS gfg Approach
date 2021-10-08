@@ -1,0 +1,15 @@
+def bfsOfGraph(self, node, graph):
+        queue=[]
+        vis=[0]*node
+        arr=[]
+        queue.append(0)
+        vis[0]=1
+        while(queue):
+            curr=queue.pop(0)
+            arr.append(curr)
+            for i in graph[curr]:
+                if vis[i] == 0:
+                    vis[i]=1
+                    queue.append(i)
+        return arr
+            
