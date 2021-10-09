@@ -1,0 +1,12 @@
+def IsUnique(s,n):
+    arr=[0]*256
+    for i in s:
+        if arr[ord(i)] == 1:
+            return False
+        else:
+            arr[ord(i)]=1
+    return True
+            
+s="abcd"
+n=len(s)
+print(IsUnique(s,n))
