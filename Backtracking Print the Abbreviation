@@ -1,0 +1,15 @@
+def abbv(str1,asf,count,pos):
+    if (pos == len(str1)):
+        if (count == 0):
+            print(asf)
+        else:
+            print(asf+str(count))
+        return
+    if (count > 0):
+        abbv(str1,asf+str(count)+str1[pos],0,pos+1)
+    else:
+        abbv(str1,asf+str1[pos],0,pos+1)
+    abbv(str1,asf,count+1,pos+1)
+    
+str1="pep"
+abbv(str1,"",0,0)
