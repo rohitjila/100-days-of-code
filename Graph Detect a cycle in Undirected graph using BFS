@@ -1,0 +1,25 @@
+class Solution:
+    
+    def cyclecheck(self,s,V,adj,vis):
+        queue=[]
+        vis[s]=1
+        queue.append([s,-1])
+        while(queue):
+            node=queue[0][0]
+            prev=queue[0][1]
+            queue.pop(0)
+            for i in adj[node]:
+                if vis[i] == 0:
+                    vis[i]=1
+                    queue.append([i,node])
+                    
+                elif (prev != i):
+                    return True
+        return False
+	def isCycle(self, V, adj):
+		vis=[0 for i in range(V)]
+        for i in range(0,V):
+            if (vis[i] == 0):
+                if self.cyclecheck(i,V,adj,vis):
+                    return True
+        return False
