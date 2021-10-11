@@ -1,0 +1,16 @@
+class Solution:
+    
+    def cyclecheck(self,node,par,adj,vis):
+        vis[node]=1
+        for i in adj[node]:
+            if (vis[i] == 0):
+                if (self.cyclecheck(i,node,adj,vis)):
+                    return True
+            elif (par != i):
+                return True
+        return False
+    def isCycle(self, V, adj):
+	    vis=[0 for i in range(V)]
+        for i in range(V):
+            if (vis[i] == 0):
+                if (self.cyclecheck(i,-1,adj,vis)): return True
