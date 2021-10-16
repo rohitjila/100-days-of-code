@@ -1,0 +1,23 @@
+def checkforCycle(node,par,vis,adj):
+    vis[node]=1
+    for it in adj[node]:
+        if (vis[it] == 0):
+            if(checkforCycle(it,node,vis,adj)): return True
+        elif(it != par):
+            return True
+    return False
+                
+def isCycle(V,adj):
+    vis=[0 for i in range(V)]
+    for i in range(0,V):
+        if (vis[i] == 0):
+            if(checkforCycle(i,-1,vis,adj)): return True
+    return False
+
+t=int(input())
+v,e=map(int,input().split())
+adj=[[] for i in range(v)]
+for i in range(e):
+    U,V=map(int,input().split())
+    adj[U].append(V)
+print(isCycle(v,adj))
