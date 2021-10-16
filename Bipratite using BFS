@@ -1,0 +1,23 @@
+class Solution:
+    def bfsColor(self,adj,node,color):
+        queue=[]
+        queue.append(node)
+        color[0]=1
+        while(queue):
+            current=queue.pop(0)
+            for i in adj[current]:
+                if (color[i] == -1):
+                    color[i]=1-color[current]
+                    queue.append(i)
+                elif(color[i] == color[current]):
+                    return False
+        return True
+        
+    
+	def isBipartite(self, V, adj):
+		color=[-1 for i in range(V)]
+        for i in range(V):
+            if (color[i] == -1):
+                if(self.bfsColor(adj,i,color)) == False:
+                    return False
+        return True
