@@ -1,0 +1,12 @@
+class Solution:
+    def check(self, n,c):
+        if (c > n):
+            return True
+        if (n % c == 0):
+            return False
+        np=n
+        np=np-np//c
+        c+=1
+        return self.check(np,c)
+    def isLucky(self, n): 
+        return self.check(n,2)
