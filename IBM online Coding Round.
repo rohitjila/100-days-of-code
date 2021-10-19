@@ -1,0 +1,22 @@
+def string(packet):
+    packet=list(packet)
+    leng=len(packet)
+    arr=[]
+    for i in range(leng//8):
+        temp=""
+        for j in range(i*8,(i*8)+8):
+            temp=temp+packet[j]
+        temp=int(temp,2)
+        arr.append(temp)
+    length=arr[1]
+    key=arr[0]
+    if (length != len(arr)-2):
+        print("Inavlid Message")
+    else:
+        msg=""
+        for i in range(2,len(arr)):
+            msg=msg+str(chr(arr[i]^key))
+        print(msg)
+        
+packet="10101010000001011110001011001111110001101100011011000101"
+string(packet)
