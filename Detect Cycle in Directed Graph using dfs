@@ -1,0 +1,20 @@
+class Solution:
+    
+    def checkCycle(self,node,adj,vis,dfsvis):
+        vis[node]=1
+        dfsvis[node]=1
+        for i in adj[node]:
+            if (not vis[i]):
+                if (self.checkCycle(i,adj,vis,dfsvis)): return True
+            elif (dfsvis[i]):
+                return True
+        dfsvis[node]=0
+        return False
+    def isCyclic(self, V, adj):
+        vis=[0]*V
+        dfsvis=[0]*V
+        for i in range(V):
+            if (not vis[i]):
+                if (self.checkCycle(i,adj,vis,dfsvis)):
+                    return True
+        return False
