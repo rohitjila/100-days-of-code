@@ -1,0 +1,26 @@
+class Solution:
+  def isCyclic(self, V, adj):
+    indegree=[0]*V
+        for i in range(V):
+            for it in adj[i]:
+                indegree[it]+=1
+        queue=[]
+        for i in range(V):
+            if (indegree[i] == 0):
+                queue.append(i)
+        
+        cnt=0
+        while(queue):
+            node=queue.pop(0)
+            cnt+=1
+            for i in adj[node]:
+                indegree[i]-=1
+                if (indegree[i] == 0):
+                    queue.append(i)
+                    
+        if (cnt == V):
+            return False
+        return True
+        
+        
+        
