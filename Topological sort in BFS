@@ -1,0 +1,16 @@
+class Solution:
+    
+    def dfs(self,adj,node,visited,stack):
+        visited[node] = True
+        for i in adj[node]:
+            if visited[i] == 0:
+                self.dfs(adj,i,visited,stack)
+        stack.insert(0,node)
+        
+    def topoSort(self, V, adj):
+        visited = [0]*V
+        stack =[]
+        for i in range(V):
+            if visited[i] == 0:
+                self.dfs(adj,i,visited,stack)
+        return stack
