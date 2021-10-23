@@ -1,0 +1,28 @@
+#shortest path in DAG
+
+def toposort(node,adj,stack,vis):
+    vis[node]=1
+    for it in adj[node]:
+        if (vis[it[0]] == 0):
+            toposort(it[0],adj,stack,vis)
+    stack.append(node)
+
+def shortestPath(src,N,adj):
+    vis=[0]*N
+    stack=[]
+    for i in range(N):
+        if (vis[i] == 0):
+            toposort(i,adj,stack,vis)
+            
+            
+    dis=[1e9]*N
+    dis[src]=0
+    while(stack):
+        node=stack.pop(0)
+        if (dis[node] != 1e9):
+            for it in adj[node]:
+                if (dis[node] + it[1] < it[0]):
+                    dis[node] = dis[node] + it[1]
+                    
+    for i in range(N):
+        print(dist[i],end=" ")
