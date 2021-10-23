@@ -1,0 +1,14 @@
+def shortestPath(adj,N,src):
+    dis=[1e9]*N
+    queue=[]
+    dis[src]=0
+    queue.append(src)
+    while(queue):
+        node=queue.pop(0)
+        for i in adj[node]:
+            if (dis[node]+1 < dis[i]):
+                dis[i]=dis[node]+1
+                queue.append(i)
+                
+    for i in range(N):
+        print(dis[i],end=" ")
