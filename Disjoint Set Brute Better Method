@@ -1,0 +1,36 @@
+def find(v):
+    if (parent[v] == -1):
+        return v
+    return parent[v] = find(parent[v])
+    
+    
+def union(froM,top):
+    froM=find(froM)
+    top=find(top)
+    if (rank[froM] < rank[top]):
+        parent[froM] = top
+        
+    elif (rank[froM] > rank[top]):
+        parent[top] = froM
+    
+    else:
+        parent[froM] = top
+        rank[top]+=1
+    
+def isCyclic(adj):
+    for it in adj:
+        froM=find(it[0])
+        top=find(it[1])
+        
+        if (froM == top):
+            return True
+            
+        union(froM,top)
+    return False
+E,V=map(int(input().split()))
+parent=[-1]*V
+rank=[0]*V
+adj=[[] for i in range(V)]
+for i in range(E):
+    u,v=map(int,input().split())
+    adj.append([u,v])
