@@ -1,0 +1,53 @@
+class Solution:
+    
+    def __init__(self):
+        self.parent = []
+        self.rank = []
+        
+    def  find_set(self,v):
+        if v == self.parent[v]:
+            return v
+        self.parent[v] = self.find_set(self.parent[v])
+        return self.parent[v]
+    def union_sets(self,a,b):
+        a = self.find_set(a)
+        b = self.find_set(b)
+        if a != b :
+            if (self.rank[a] < self.rank[b]) :
+                temp = a
+                a = b
+                b = temp
+            self.parent[b] = a 
+            if self.rank[a] == self.rank[b] : 
+                self.rank[a]+=1
+    def spanningTree(self, V, adj):
+        res = []
+
+        for i in range(V) :
+            for j in range(len(adj[i])) :
+                x = adj[i][j]
+
+                temp = []
+                temp.append(x[1])
+                temp.append(min(i,x[0]))
+                temp.append(max(i,x[0]))
+
+                res.append(temp)
+        res.sort()
+
+        graph = []
+        for e in res :
+            graph.append(e)
+
+        cost = 0;
+        self.parent = [0]*V
+        self.rank = [0]*V
+
+        for i in range(V) :
+            self.parent[i]=i
+        for e in graph :
+            if self.find_set(e[1]) != self.find_set(e[2]) :
+                cost+=e[0]
+                self.union_sets(e[1],e[2])
+
+        return cost
