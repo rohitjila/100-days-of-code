@@ -1,0 +1,41 @@
+#articulation point
+def dfs(adj,u,par,vis,l,d,time,ap):
+    l[u]=d[u]=time
+    time+=1
+    ch=0
+    vis[u]=1
+    for v in adj[u]:
+        if (vis[i] == 0):
+            ch+=1
+            dfs(adj,v,u,vis,l,d,time,ap)
+            l[u]=min(l[u],l[v])
+            if (par == -1 and  ch > 1):
+                ap.add(u)
+                
+            if (par != -1 and l[v] >= d[u]):
+                ap.add(u)
+        elif(par != v):
+            l[u]=min(l[u],d[v])
+            
+def articulation(V,adj):
+    vis=[0]*V
+    time=0
+    l=[0]*V
+    d=[0]*V
+    ap=set()
+    for i in range(V):
+        if (vis[i] == 0):
+            dfs(adj,i,-1,vis,l,d,time,ap)
+    ans=list(ap)
+    if (len(ans) == 0):
+        return -1
+    else:
+        return sorted(ans)
+    
+V,E=map(int,input().split())
+adj=[[] for i in range(V)]
+for i in range(E):
+    u,v=map(int,input().split())
+    adj[u].append(v)
+    adj[v].append(u)
+print(articulation(V,adj))
