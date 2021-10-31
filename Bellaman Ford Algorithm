@@ -1,0 +1,20 @@
+class Solution:
+	def isNegativeWeightCycle(self, n, edges):
+	    inf=1e9
+		dist=[inf]*n
+		dist[0]=0
+		for i in range(1,n):
+		    for it in edges:
+		        if (dist[it[0]]+it[2] < dist[it[1]]):
+		            dist[it[1]] = dist[it[0]]+it[2]
+		            
+		flag=0         
+		for it in edges:
+		    if (dist[it[0]]+it[2] < dist[it[1]]):
+		            dist[it[1]] = dist[it[0]]+it[2]
+		            flag=1
+		            break
+		if (flag == 1):
+		    return 1
+		else:
+		    return 0
