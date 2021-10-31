@@ -1,0 +1,53 @@
+#User function Template for python3
+
+class Solution:
+    
+    def DFSUtil(self,graph,v,visited):
+        visited[v]= True
+    
+        for i in graph[v]:
+            if visited[i]==False:
+                self.DFSUtil(graph,i,visited)
+
+
+    def fillOrder(self,adj,v,visited, stack):
+        
+        visited[v]= True
+    
+        for i in adj[v]:
+            if visited[i]==False:
+                self.fillOrder(adj, i, visited, stack)
+                
+        stack = stack.append(v)
+    
+    def getTranspose(self, V, adj):
+        g = [[] for i in range(V)]
+        for i in range(V):
+            for j in adj[i]:
+                g[j].append(i)
+        return g
+
+    def kosaraju(self, V, adj):
+        
+        ans=0
+        stack = []
+
+        visited =[False]*V
+        
+        for i in range(V):
+            if visited[i]==False:
+                self.fillOrder(adj, i, visited, stack)
+
+        gr = self.getTranspose(V,adj)
+         
+        visited =[False]*V
+
+        while stack:
+            
+            i = stack.pop()
+            if visited[i]==False:
+                self.DFSUtil(gr, i, visited)
+                ans+=1 
+        
+
+        return ans
