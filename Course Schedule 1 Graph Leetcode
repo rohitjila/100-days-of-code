@@ -1,0 +1,23 @@
+class Solution:
+    def dfs(self,node,adj,vis):
+        if node in vis:
+            return False
+        if adj[node] == []:
+            return True
+        vis.add(node)
+        for it in adj[node]:
+            if not self.dfs(it,adj,vis): return False
+        vis.remove(node)
+        adj[node]=[]
+        return True
+            
+            
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        adj=[[] for i in range(numCourses)]
+        for u,v in prerequisites:
+            adj[u].append(v)
+        vis=set()
+        for i in range(numCourses):
+            if i not in vis:
+                if not self.dfs(i,adj,vis): return False
+        return True
