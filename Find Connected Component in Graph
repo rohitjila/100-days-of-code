@@ -1,0 +1,27 @@
+#find connected component
+def dfs(node,adj,vis,comp):
+    vis[node]=1
+    comp.append(node)
+    for it in adj[node]:
+        if (vis[it] == 0):
+            dfs(it,adj,vis,comp)
+
+
+def connected(V,adj):
+    vis=[0]*V
+    lst=[]
+    for i in range(V):
+        if (vis[i] == 0):
+            comp=[]
+            dfs(i,adj,vis,comp)
+            lst.append(comp)
+    return lst
+
+
+V,E=map(int,input().split())
+adj=[[] for i in range(V)]
+for i in range(E):
+    u,v=map(int,input().split())
+    adj[u].append(v)
+    adj[v].append(u)
+print(connected(V,adj))
