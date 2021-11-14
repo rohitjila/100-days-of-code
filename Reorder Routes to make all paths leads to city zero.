@@ -1,0 +1,20 @@
+from collections import defaultdict
+class Solution:
+    def minReorder(self, n: int, connections: List[List[int]]):
+        visited = [0]*n
+        adj = [[] for i in range(n)]
+        global count
+        count= 0
+        for i , j in connections:
+            adj[i].append([j,1])
+            adj[j].append([i,-1]) 
+        self.dfs(0,visited,adj)
+        return count
+    def dfs(self,capital,visited,adj):
+        global count
+        visited[capital] = 1
+        for neigh in adj[capital]:
+            if (visited[neigh[0]]) == 0:
+                if (neigh[1]) == 1:
+                     count+=1
+                self.dfs(neigh[0],visited,adj)
