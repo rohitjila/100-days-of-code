@@ -1,0 +1,28 @@
+#no of connected component in undirected graph
+#this can also be done by union and find algorithms.
+
+def dfs(visited,adj,node):
+    visited[node] = 1
+    for it in adj[node]:
+        if (visited[it] == 0):
+            dfs(visited,adj,it)
+
+def connected(V,adj):
+    visited=[0]*V
+    global count
+    count=0
+    for i in range(V):
+        if (visited[i] == 0):
+            dfs(visited,adj,i)
+            count+=1
+    return count
+
+
+V,E = map(int,input().split())
+adj = [[] for i in range(V)]
+for i in range(E):
+    u,v=map(int,input().split())
+    adj[u].append(v)
+    adj[v].append(u)
+    
+print(connected(V,adj))
