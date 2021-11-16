@@ -1,0 +1,31 @@
+def walls(List):
+    r ,c = len(List) , len(List[0])
+    visit = set()
+    q=deque()
+    
+    
+    
+    def addRooms(i,j):
+        if (i < 0 or j < 0 or i == r or j == c or List[i][j] == -1 or (i,j) in visit):
+            return 
+        visit.add((i,j))
+        q.append([i,j])
+    
+    for i in range(r):
+        for j in range(c):
+            if (List[i][j] == 0):
+                q.append((i,j))
+                visit.add((r,c))
+                
+                
+    dist=0
+    while(q):
+        for r in range(len(q)):
+            i,j=q.popleft()
+            List[i][j] = dist
+            addRooms(i+1,j)
+            addRooms(i-1,j)
+            addRooms(i,j-1)
+            addRooms(i,j+1)
+            
+        dist+=1
