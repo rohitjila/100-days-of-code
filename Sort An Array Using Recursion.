@@ -1,0 +1,23 @@
+def sort(arr):
+    if (len(arr) == 1):
+        return 
+    temp=arr[len(arr)-1]
+    arr.pop()
+    sort(arr)
+    insert(arr,temp)
+    
+def insert(arr,temp):
+    if (len(arr) == 0 or arr[len(arr)-1] <= temp):
+        arr.append(temp)
+        return
+    
+    res=arr[len(arr)-1]
+    arr.pop()
+    insert(arr,temp)
+    arr.append(res)
+    
+    
+arr=[0,1,5,2]
+n=len(arr)
+sort(arr)
+print(arr)
