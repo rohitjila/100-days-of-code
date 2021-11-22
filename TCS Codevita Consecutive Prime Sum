@@ -1,0 +1,28 @@
+from math import sqrt
+def prime(n):
+    for i in range(2,int(sqrt(n))+1):
+        if (n % i == 0):
+            return False
+    return True
+
+def FindPrime(n):
+    arr=[]
+    arr1=[]
+    for i in range(2,1000+1):
+        if (prime(i)):
+            arr.append(i)
+            
+    S=0
+    for i in range(len(arr)):
+        S+=arr[i]
+        arr1.append(S)
+        
+        
+    count=0
+    for i in range(3,n+1):
+        if (prime(i) and i in arr1):
+            count+=1
+    return count
+    
+n=1000
+print(FindPrime(n))
