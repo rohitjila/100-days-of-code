@@ -1,13 +1,14 @@
 def towerofHanoi(s,d,h,n):
+    count=1
     if n == 1:
         print(" Move n from " + s + "to" + d)
         return
-    towerofHanoi(s,h,d,n-1)
+    count+=towerofHanoi(s,h,d,n-1)
     print(" Move n from " + s + "to" + d)
-    towerofHanoi(h,d,s,n-1)
-    return
+    count+=towerofHanoi(h,d,s,n-1)
+    return count
 
-n=3
+n=2
 s="1"
 h="2"
 d="3"
