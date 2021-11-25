@@ -1,0 +1,14 @@
+def towerofHanoi(s,d,h,n):
+    if n == 1:
+        print(" Move n from " + s + "to" + d)
+        return
+    towerofHanoi(s,h,d,n-1)
+    print(" Move n from " + s + "to" + d)
+    towerofHanoi(h,d,s,n-1)
+    return
+
+n=3
+s="1"
+h="2"
+d="3"
+towerofHanoi(s,d,h,n)
