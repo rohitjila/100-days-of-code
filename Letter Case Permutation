@@ -1,0 +1,32 @@
+class Solution:
+    def letterCasePermutation(self, s: str) -> List[str]:
+        ip=""
+        for i in s:
+            ip+=i
+        op=""
+        ans=[]
+        self.solve(ip,op,ans)
+        return ans
+        
+        
+    def solve(self,ip,op,ans):
+            if (len(ip) == 0):
+                ans.append(op)
+                return
+            
+            if (ip[0].isdigit() == True):
+                op1=op
+                op1+=ip[0]
+                ip = ''.join([ip[i] for i in range(len(ip)) if i != 0]) 
+                new_ip=ip
+                self.solve(new_ip,op1,ans)
+            else:
+                op1=op
+                op2=op
+                op1+=ip[0].lower()
+                op2+=ip[0].upper()
+                ip = ''.join([ip[i] for i in range(len(ip)) if i != 0]) 
+                new_ip=ip
+                self.solve(new_ip,op1,ans)
+                self.solve(new_ip,op2,ans)
+                
