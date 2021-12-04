@@ -1,0 +1,27 @@
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        #O(nlogn)
+        nums.sort()
+        ans=[]
+        for num in range(len(nums)):
+            if (nums[num] == target):
+                ans.append(num)
+        return ans
+            
+        #O(n)
+        ans=[]    
+        cnttarget=0
+        cntless=0
+        for i in range(len(nums)):
+            if (nums[i] == target):
+                cnttarget+=1
+                
+            if (nums[i] < target):
+                cntless+=1
+    
+                
+        while(cnttarget):
+            ans.append(cntless)
+            cnttarget-=1
+            cntless+=1
+        return ans
