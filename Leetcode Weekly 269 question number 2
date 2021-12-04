@@ -1,0 +1,35 @@
+class Solution:
+    def getAverages(self, nums: List[int], k: int) -> List[int]:
+        n=k*2+1
+        le=len(nums)
+        ans=[-1]*le
+        Sum=0
+        for i in range(le):
+            Sum+=nums[i]
+            if (i - n >= 0): Sum-=nums[i-n]
+            if (i >= n - 1): ans[i-k] = Sum//n
+        return ans
+        
+         
+        
+        ans=[]
+        n=k*2+1
+        for i in range(len(arr)):
+            if (i < k):
+                ans.append(-1)
+                continue
+            if (len(arr) - i <= k):
+                ans.append(-1)
+                continue
+            else:
+                ans1=sum(arr[i-k:i+k+1])
+                ans.append(ans1)
+            
+        for i in range(len(ans)):
+            if (ans[i] == -1):
+                continue
+            else:
+                ans[i]=ans[i]//n
+        return ans
+        
+    
