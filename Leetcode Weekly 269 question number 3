@@ -1,0 +1,55 @@
+class Solution:
+    def minimumDeletions(self, nums: List[int]) -> int:
+        mi=min(nums)
+        mx=max(nums)
+        
+        fc1=0
+        fc2=0
+        for i in range(len(nums)):
+            if (nums[i] == mi):
+                fc1=i+1
+                
+            if (nums[i] == mx):
+                fc2=i+1
+                
+                
+        if (fc1 > fc2):
+            res1=fc1
+            
+        else:
+            res1=fc2
+
+                
+        
+                
+        bc1=0
+        bc2=0
+        for i in range(len(nums)-1,-1,-1):
+            if (nums[i] == mi):
+                bc1=len(nums)-i
+                
+            if (nums[i] == mx):
+                bc2=len(nums)-i
+                
+                
+        if (bc1 > bc2):
+            res2=bc1
+            
+        else:
+            res2=bc2
+            
+            
+            
+
+        res3=fc2+bc1
+        res4=fc1+bc2
+
+        
+        ans=[]
+        ans.append(res1)
+        ans.append(res2)
+        ans.append(res3)
+        ans.append(res4)
+        
+        final_ans=min(ans)
+        return final_ans
