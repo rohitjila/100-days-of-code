@@ -1,0 +1,26 @@
+class Solution:
+    def findAllPeople(self, n: int, meetings: List[List[int]], firstPerson: int) -> List[int]:
+        adj=[[] for i in range(n)]
+        for u,v,w in meetings:
+            adj[u].append([v,w])
+            adj[v].append([u,w])
+         
+        pq=[]
+        heapq.heapify(pq)
+        heapq.heappush(pq,[0,0])
+        heapq.heappush(pq,[0,firstPerson])
+        vis=[0]*n
+        
+        while(pq):
+            t,x=heapq.heappop(pq)
+            if (vis[x] == 1): continue
+            vis[x]=1
+            for it in adj[x]:
+                if (vis[it[0]] == 1): continue
+                if (it[1] >= t):
+                    heapq.heappush(pq,[it[1],it[0]])
+        ans=[]
+        for i in range(len(vis)):
+            if (vis[i] == 1):
+                ans.append(i)
+        return ans
