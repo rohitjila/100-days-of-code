@@ -1,0 +1,23 @@
+class Solution:
+	def NBitBinary(self, N):
+		string=[]
+    	ones=0
+    	zero=0
+    	op=""
+    	self.solve(ones,zero,N,string,op)
+    	return string
+    		
+		
+	def solve(self,ones,zero,N,string,op):
+	    if (N == 0):
+    	    string.append(op)
+    	    return
+    	op1=op
+    	op1+="1"
+    	self.solve(ones+1,zero,N-1,string,op1)
+    	        
+    	if (ones > zero):
+    	    op2=op
+    	    op2+="0"
+    	    self.solve(ones,zero+1,N-1,string,op2)
+    	    return
