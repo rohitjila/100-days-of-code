@@ -1,0 +1,67 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def lca(self,node,u,v):
+        if (node == None): return None
+        if (node.val == u or node.val == v): return node
+        l=self.lca(node.left , u ,v)
+        r=self.lca(node.right ,u,v)
+        if (l != None or r != None): return node
+        if (l != None): return l
+        if (r != None): return r
+        return None
+    
+    
+    def findPath(self,node,ans,target):
+        if (node.val == target): return True
+        if (node.left and self.findPath(node.left,ans,target) == True):
+            ans+="L"
+            return True
+        if (node.right and self.findPath(node.right,ans,target) == True):
+            ans+="R"
+            return True 
+        return False
+      
+        
+    def getDirections(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
+        lc= self.lca(root,startValue,destValue)
+        startPath=""
+        endPath=""
+        self.findPath(lc,startPath,startValue)
+        self.findPath(lc,endPath,destValue)
+        for i in range(len(startPath)):
+            startPath[i]="U"
+        endPath[::-1]
+        ans=startPath+endPath
+        return ans
+        
+        
+        def findPath(self,node,ans,target):
+        if (node.val == target): return True
+        if (node.left and self.findPath(node.left,ans,target) == True):
+            ans+="L"
+            return True
+        if (node.right and self.findPath(node.right,ans,target) == True):
+            ans+="R"
+            return True 
+        return False
+      
+        
+    def getDirections(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
+        # lc= self.lca(root,startValue,destValue)
+        startPath=""
+        endPath=""
+        self.findPath(root,startPath,startValue)
+        self.findPath(root,endPath,destValue)
+        while(startPath and endPath and startPath[-1] == endPath[-1]):
+            startPath.pop()
+            endPath.pop()
+        for i in range(len(startPath)):
+            startPath[i]="U"
+        endPath[::-1]
+        ans=startPath+endPath
+        return ans
