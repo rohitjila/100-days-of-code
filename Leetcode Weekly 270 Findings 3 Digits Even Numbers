@@ -1,0 +1,23 @@
+class Solution:
+    def check(self,num,freq):
+        freq2=[0]*10
+        while(num):
+            freq2[num%10]+=1
+            num=num//10
+            
+        for i in range(0,10):  
+            if (freq2[i] and freq2[i] > freq[i]): return False
+        return True
+        
+        
+        
+    def findEvenNumbers(self, digits: List[int]) -> List[int]:
+        ans=[]
+        freq=[0]*10
+        for i in range(len(digits)):
+            freq[digits[i]]+=1
+        for it in range(100,999,2):
+            if (self.check(it,freq)):
+                ans.append(it)
+        return ans
+            
