@@ -1,0 +1,51 @@
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        ans=[]
+        self.recurpermute(0,nums,ans)
+        return ans
+    
+    
+    def recurpermute(self,index,nums,ans):
+        if (index == len(nums)):
+            ds=[]
+            for i in range(len(nums)):
+                ds.append(nums[i])
+            ans.append(ds)
+            return
+        
+        for i in range(index,len(nums)):
+            self.swap(i,index,nums)
+            self.recurpermute(index+1,nums,ans)
+            self.swap(i,index,nums)
+            
+    def swap(self,i,j,nums):
+        t=nums[i]
+        nums[i]=nums[j]
+        nums[j]=t
+        
+            
+            
+    
+            
+        
+        
+        ans=[]
+        ds=[]
+        freq=[0]*len(nums)
+        self.recurpermute(nums,ans,ds,freq)
+        return ans
+        
+    def recurpermute(self,nums,ans,ds,freq):
+        if (len(ds) == len(nums)):
+            ds1=[]
+            for i in range(len(ds)):
+                ds1.append(ds[i])
+            ans.append(ds1)
+            return 
+        for i in range(len(nums)):
+            if (not freq[i]):
+                ds.append(nums[i])
+                freq[i]=1
+                self.recurpermute(nums,ans,ds,freq)
+                freq[i]=0
+                ds.pop()
