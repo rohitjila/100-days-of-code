@@ -1,0 +1,14 @@
+class Solution:
+    def wateringPlants(self, plants: List[int], capacity: int) -> int:
+        ans=0
+        can=capacity
+        for i in range(len(plants)):
+            if (can < plants[i]):
+                ans+=2*i
+                can=capacity
+                
+            ans+=1
+            can-=plants[i]
+        return ans
+            
+        
