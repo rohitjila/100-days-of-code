@@ -1,0 +1,56 @@
+from sys import stdin,setrecursionlimit
+setrecursionlimit(10**7)
+
+class TrieNode :
+    
+    def __init__(self) :
+
+        self.child = [None for i in range(26)]
+        self.isEnd = False
+
+class Trie :
+
+    def __init__(self) :
+
+        self.node = TrieNode()
+    
+    def insert(self, string) :
+
+        n = len(string)
+        if(n == 0) :
+            self.node.isEnd = True
+            return 
+        else :
+            if self.node.child[ord(string[0]) - ord('a')] != None :
+                self.node.child[ord(string[0]) - ord('a')].insert(string[1:])
+            
+            else :
+                self.node.child[ord(string[0]) - ord('a')] = Trie()
+                self.node.child[ord(string[0]) - ord('a')].insert(string[1:])
+        return 
+
+    
+    def search(self, word) :
+        temp = self.node
+        for i in range(len(word)) :
+            if temp.child[ord(word[i]) - ord('a')] == None:
+                return False
+            
+            else :
+                temp = temp.child[ord(word[i]) - ord('a')].node
+
+        if(temp.isEnd == True) :
+            return True
+        else :
+            return False
+
+        
+    def startWith(self, prefix) :
+        temp = self.node
+        for i in range(len(prefix)) :
+            if temp.child[ord(prefix[i]) - ord('a')] == None :
+                return False
+
+            temp = temp.child[ord(prefix[i]) - ord('a')].node
+        
+        return True
