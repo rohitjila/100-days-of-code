@@ -1,0 +1,9 @@
+class RangeFreqQuery:
+
+    def __init__(self, arr: List[int]):
+        self.data=collections.defaultdict(list)
+        for i , n in enumerate(arr):
+            self.data[n].append(i)
+            
+    def query(self, left: int, right: int, value: int) -> int:
+        return bisect.bisect_right(self.data[value],right) - bisect.bisect_left(self.data[value],left)
