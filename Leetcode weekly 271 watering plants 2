@@ -1,0 +1,56 @@
+class Solution:
+    def minimumRefill(self, plants: List[int], ca: int, cb: int) -> int:
+        n=len(plants)
+        i=0
+        j=n-1
+        oca=ca
+        ocb=cb
+        count=0
+        while(i <= j):
+            #when both reach at the same plants
+            if (i == j):
+                if (ca >= cb):
+                    if (ca >= plants[i]):
+                        ca-=plants[i]
+                        i+=1
+                        
+                    else:
+                        count+=1
+                        ca=oca
+                        ca-=plants[i]
+                        i+=1
+                else:
+                    if (cb >= plants[j]):
+                        cb-=plants[j]
+                        j-=1
+                            
+                    else:
+                        count+=1
+                        cb=ocb
+                        cb-=plants[j]
+                        j-=1
+            else:
+                if (ca >= plants[i]):
+                        ca-=plants[i]
+                        i+=1
+                        
+                else:
+                    count+=1
+                    ca=oca
+                    ca-=plants[i]
+                    i+=1
+                    
+                    
+                if (cb >= plants[j]):
+                    cb-=plants[j]
+                    j-=1
+                            
+                else:
+                    count+=1
+                    cb=ocb
+                    cb-=plants[j]
+                    j-=1
+                
+                
+        return count
+                           
