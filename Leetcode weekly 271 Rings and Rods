@@ -1,0 +1,19 @@
+class Solution:
+    def countPoints(self, s: str) -> int:
+        di=defaultdict(list)
+        i=0
+        j=1
+        while(j < len(s)):
+            di[s[j]].append(s[i])
+            i+=2
+            j+=2
+        for key in di:
+            di[key]=set(di[key])
+        for key in di:
+            di[key]=sorted(di[key])
+        # return di
+        res=0
+        for key in di:
+            if(di[key] == ["B","G","R"]):
+                res +=1
+        return res
