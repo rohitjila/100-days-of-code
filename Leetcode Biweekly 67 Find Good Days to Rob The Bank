@@ -1,0 +1,31 @@
+class Solution:
+    def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
+
+        cnt=1
+        pre=[0]*len(security)
+        suff=[0]*len(security)
+        ans=[]
+        pre[0]=1
+        suff[len(security)-1]=1
+        for i in range(1,len(security)):
+            if (security[i] <= security[i-1]):
+                cnt+=1
+
+            else:
+                cnt=1
+            pre[i]=cnt
+        
+        cnt=1
+        for i in range(len(security)-2,-1,-1):
+            if (security[i] <= security[i+1]):
+                cnt+=1
+
+            else:
+                cnt=1
+            suff[i]=cnt
+                
+        for i in range(len(security)):
+            if (pre[i] - 1 >= time and suff[i] -1 >= time):
+                ans.append(i)
+        return ans
+        
