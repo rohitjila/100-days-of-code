@@ -1,0 +1,40 @@
+class Solution:
+    def maximumDetonation(self, bombs: List[List[int]]) -> int:
+        n=len(bombs)
+        adj=[[] for i in range(n)]
+        for i in range(n):
+            r1=bombs[i][2]
+            x1=bombs[i][0]
+            y1=bombs[i][1]
+            for j in range(n):
+                if (i != j):
+                    y2=bombs[j][1]
+                    x2=bombs[j][0]
+                    r2=bombs[j][2]
+                    
+                    ds=((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2))
+                    new_radius=r1
+                    if (ds <= new_radius*new_radius):
+                        adj[i].append(j)
+                        
+        vis=[0]*n
+        ans=0
+        for i in range(n):
+            cnt=0
+            self.dfs(i,adj,n,vis)
+            for j in range(n):
+                if (vis[j] == 1): cnt+=1
+            ans=max(ans,cnt)
+            for k in range(n):
+                vis[k]=0
+        return ans
+        
+        
+        
+    def dfs(self,i,adj,n,vis):
+        vis[i]=1
+        for it in adj[i]:
+            if (vis[it] == 0):
+                self.dfs(it,adj,n,vis)
+                         
+            
