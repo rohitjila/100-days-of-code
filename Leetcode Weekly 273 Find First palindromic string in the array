@@ -1,0 +1,13 @@
+class Solution:
+    def firstPalindrome(self, words: List[str]) -> str:
+        s=""
+        for i in range(len(words)):
+            if (self.palindrome(words[i])) == True:
+                s+=words[i]
+                break
+        return s
+    
+    def palindrome(self,s):
+        if (s==s[::-1]):
+            return True
+        return False
