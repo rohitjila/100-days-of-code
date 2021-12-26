@@ -1,0 +1,23 @@
+class Solution:
+    # def isSub(self,s,t,m,n):
+    #     if (m == len(s)): return True
+    #     if (n == len(t)): return False
+    #     if (s[m] == t[n]):
+    #         return (self.isSub(s,t,m+1,n+1))
+    #     return self.isSub(s,t,m,n+1)
+        
+        
+        
+    def isSubsequence(self, s: str, t: str) -> bool:
+        # m=0
+        # n=0
+        # return self.isSub(s,t,m,n)
+        
+        
+        i,j=0,0
+        while(i < len(s) and j < len(t)):
+            if (s[i] == t[j]):
+                i+=1
+            j+=1
+        return True if (i == len(s)) else False
+        
