@@ -1,0 +1,36 @@
+class Solution:
+    def getDistances(self, arr: List[int]) -> List[int]:
+        #Brute Force
+        ans=[0]*len(arr)
+        mp=collections.defaultdict(list)
+        for i in range(len(arr)):
+            mp[arr[i]].append(i)
+        for it in mp:
+            ind=mp[it]
+            for j in range(len(ind)):
+                s=0
+                for k in range(len(ind)):
+                    s+=abs(ind[j]-ind[k])
+                ans[ind[j]]=s
+        return ans
+        
+                
+        #Brute Better
+        cntmp=collections.defaultdict(lambda:0)
+        summp=collections.defaultdict(lambda:0)
+        n=len(arr)
+        ans=[0]*(n)
+        for i in range(n):
+            ans[i]+=(cntmp[arr[i]]*i - (summp[arr[i]]))
+            cntmp[arr[i]]+=1
+            summp[arr[i]] += i
+        print(summp)
+        cntmp.clear()
+        summp.clear()
+        for i in range(n-1,-1,-1):
+            ans[i]+=(summp[arr[i]] - (cntmp[arr[i]]*i ))
+            cntmp[arr[i]]+=1
+            summp[arr[i]] +=i
+        return ans
+            
+            
