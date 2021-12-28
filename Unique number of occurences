@@ -1,0 +1,32 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        c= collections.Counter(arr)
+        return len(c) == len(set(c.values()))
+            
+        
+    
+        
+        ans=[-1]*(1001)
+        for i in range(len(arr)):
+            ans[arr[i]]+=1
+        print(ans)
+        ans.sort()
+        for i in range(len(ans)-1):
+            if (ans[i] == ans[i+1] and ans[i] != -1):
+                return False
+        return True
+    
+    
+        mp=collections.defaultdict(lambda : 0)
+        n=len(arr)
+        for i in range(n):
+            mp[arr[i]]+=1
+        ans=[]
+        for i in mp:
+            ans.append(mp[i])
+        ans.sort()
+        for i in range(len(ans)-1):
+            if (ans[i] == ans[i+1]):
+                return False
+        return True
+        
