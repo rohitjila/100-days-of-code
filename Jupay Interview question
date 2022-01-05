@@ -1,0 +1,15 @@
+class Solution():
+    def maxWeightCell(self, N, arr):
+        ans=[0 for i in range(N)]
+        for i in range(N):
+            if (arr[i] >= 0):
+                ans[arr[i]]+=i
+                
+                
+        final_ans=-1
+        ans1=-1
+        for i in range(N-1,-1,-1):
+            if (final_ans < ans[i]):
+                final_ans=ans[i]
+                ans1=i
+        return ans1
