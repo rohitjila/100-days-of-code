@@ -1,0 +1,8 @@
+def reverseDuplicates(s):
+    s=list(dict.fromkeys(s))
+    s.reverse()
+    return "".join(s)
+    
+    
+s=input()
+print(reverseDuplicates(s))
