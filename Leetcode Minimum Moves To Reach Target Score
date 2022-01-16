@@ -1,0 +1,12 @@
+class Solution:
+    def minMoves(self, target: int, md: int) -> int:
+        if (md == 0): return target-1
+        ans=0
+        while(md > 0 and target > 1):
+            if (target % 2 == 0):
+                target //=2
+                md-=1
+            else:
+                target -=1 
+            ans+=1
+        return (ans+target-1)
