@@ -1,0 +1,16 @@
+class Solution:
+    def divideString(self, s: str, k: int, fill: str) -> List[str]:
+        ans=[]
+        i=0
+        while(i < len(s)):
+            ans.append(s[i:i+k])
+            i+=k
+
+        if (len(ans[-1]) != k):
+            st=ans[-1]
+            output=k - len(ans[-1])
+            for i in range(output):
+                st+=fill
+            ans[-1]=st
+        return ans
+        
