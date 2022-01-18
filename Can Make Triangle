@@ -1,0 +1,13 @@
+#User function Template for python3
+class Solution:
+    def canMakeTriangle(self, arr, N):
+        ans=[]
+        for i in range(N-2):
+            a=arr[i]
+            b=arr[i+1]
+            c=arr[i+2]
+            if (a+b <= c or b+c <= a or a+c <= b):
+                ans.append(0)
+            else:
+                ans.append(1)
+        return ans
