@@ -1,0 +1,42 @@
+class Solution:
+    def lenOfLongSubarr (self, arr, n, k):
+        mydict = dict()
+        sum = 0
+        maxLen = 0
+        for i in range(n):
+            sum += arr[i]
+            if (sum == k):
+                maxLen = i + 1
+            elif (sum - k) in mydict:
+                maxLen = max(maxLen, i - mydict[sum - k])
+            if sum not in mydict:
+                mydict[sum] = i
+    
+        return maxLen
+
+                
+        
+        
+        
+        
+        
+        
+        
+        #this is for the positive number
+        # i=0
+        # j=0
+        # ans=0
+        # Sum=0
+        # while(j < n):
+        #     Sum+=arr[j]
+        #     if (Sum == k):
+        #         ans=max(ans,j-i+1)
+        #     while(Sum > k):
+        #         Sum-=arr[i]
+        #         i+=1
+        #         if (Sum == k):
+        #             ans=max(ans,j-i+1)
+        #     j+=1
+        # return ans
+        
+    
