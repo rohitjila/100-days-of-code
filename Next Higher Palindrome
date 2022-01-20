@@ -1,0 +1,30 @@
+from math import floor
+def NextPalindrome(n):
+    # s=set()
+    # s.add(n)
+    # if (len(s) == 1):
+    #     return -1
+    #case 1 when it is even 
+    length=len(str(n))
+    # if (length) == 1:
+    #     return -1
+    
+    isEven = length % 2 == 0
+    nextNum = str(n)[:int(length)//2]
+    if (isEven):
+        nextPali=nextNum + nextNum[::-1]
+    #case when the number is odd
+    else:
+        middle = str(n)[int(length)//2]
+        nextPali=nextNum + middle + nextNum[::-1]
+    #but the result when comes smaller than the given result then we have to handle different cases
+    #then we have to split the number by middle and then we have to add number by 1 and then again multiply by middle number
+    if (nextPali > str(n)):
+        print(nextPali)
+    else:
+        increment = pow(10,floor(length)/2)
+        newnumber=floor(floor(int((n)/increment)+1)*increment)
+        NextPalindrome(newnumber)
+    
+n=33
+print(NextPalindrome(n))
